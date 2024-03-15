@@ -8,8 +8,19 @@
 import SwiftUI
 
 struct CalendarPageView: View {
+    @State private var color: Color = .blue
+    @State private var date = Date.now
+    let daysOfWeek = Date.capitalizedFirstLettersOfWeekdays
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            LabeledContent("Calendar Color") {
+                ColorPicker("", selection: $color, supportsOpacity: false)
+            }
+            LabeledContent("Date/Time") {
+                DatePicker("", selection: $date)
+            }
+        }
+        .padding()
     }
 }
 
