@@ -9,13 +9,12 @@ import SwiftUI
 
 struct HomePageView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Buenos Dias")
+        NavigationStack{
+            Section{
+                
+            }
         }
-        .padding()
+        .navigationTitle("Home")
     }
 }
 
