@@ -15,6 +15,7 @@
 		B467820C2BA4A0170004B930 /* TasksPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B467820B2BA4A0170004B930 /* TasksPageView.swift */; };
 		B467820E2BA4A19A0004B930 /* CalendarPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B467820D2BA4A19A0004B930 /* CalendarPageView.swift */; };
 		B46782102BA4A1BC0004B930 /* ConfigurationPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B467820F2BA4A1BC0004B930 /* ConfigurationPageView.swift */; };
+		B46782122BA4D4C60004B930 /* Date+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46782112BA4D4C60004B930 /* Date+Extention.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		B467820B2BA4A0170004B930 /* TasksPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksPageView.swift; sourceTree = "<group>"; };
 		B467820D2BA4A19A0004B930 /* CalendarPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPageView.swift; sourceTree = "<group>"; };
 		B467820F2BA4A1BC0004B930 /* ConfigurationPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationPageView.swift; sourceTree = "<group>"; };
+		B46782112BA4D4C60004B930 /* Date+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extention.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				8210B4DA2BA4A1EF00E3B2EE /* MainView.swift */,
 				B467820A2BA49FFC0004B930 /* PageView */,
 				82EB3FC62B9F63770058F23D /* Assets.xcassets */,
+				B46782132BA4D4D80004B930 /* CalendarFiles */,
 				82EB3FC82B9F63770058F23D /* Preview Content */,
 			);
 			path = ScheduleMaster;
@@ -85,6 +88,14 @@
 				B467820F2BA4A1BC0004B930 /* ConfigurationPageView.swift */,
 			);
 			path = PageView;
+			sourceTree = "<group>";
+		};
+		B46782132BA4D4D80004B930 /* CalendarFiles */ = {
+			isa = PBXGroup;
+			children = (
+				B46782112BA4D4C60004B930 /* Date+Extention.swift */,
+			);
+			path = CalendarFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,6 +171,7 @@
 				B46782102BA4A1BC0004B930 /* ConfigurationPageView.swift in Sources */,
 				8210B4DB2BA4A1EF00E3B2EE /* MainView.swift in Sources */,
 				82EB3FC52B9F63740058F23D /* HomePageView.swift in Sources */,
+				B46782122BA4D4C60004B930 /* Date+Extention.swift in Sources */,
 				82EB3FC32B9F63740058F23D /* ScheduleMasterApp.swift in Sources */,
 				B467820C2BA4A0170004B930 /* TasksPageView.swift in Sources */,
 				B467820E2BA4A19A0004B930 /* CalendarPageView.swift in Sources */,
