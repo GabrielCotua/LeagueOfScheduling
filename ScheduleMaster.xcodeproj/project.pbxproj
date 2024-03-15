@@ -8,17 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		82EB3FC32B9F63740058F23D /* ScheduleMasterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EB3FC22B9F63740058F23D /* ScheduleMasterApp.swift */; };
-		82EB3FC52B9F63740058F23D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EB3FC42B9F63740058F23D /* ContentView.swift */; };
+		82EB3FC52B9F63740058F23D /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EB3FC42B9F63740058F23D /* HomePageView.swift */; };
 		82EB3FC72B9F63770058F23D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82EB3FC62B9F63770058F23D /* Assets.xcassets */; };
 		82EB3FCA2B9F63770058F23D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82EB3FC92B9F63770058F23D /* Preview Assets.xcassets */; };
+		B467820C2BA4A0170004B930 /* TasksPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B467820B2BA4A0170004B930 /* TasksPageView.swift */; };
+		B467820E2BA4A19A0004B930 /* CalendarPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B467820D2BA4A19A0004B930 /* CalendarPageView.swift */; };
+		B46782102BA4A1BC0004B930 /* ConfigurationPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B467820F2BA4A1BC0004B930 /* ConfigurationPageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		82EB3FBF2B9F63740058F23D /* ScheduleMaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScheduleMaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82EB3FC22B9F63740058F23D /* ScheduleMasterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleMasterApp.swift; sourceTree = "<group>"; };
-		82EB3FC42B9F63740058F23D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		82EB3FC42B9F63740058F23D /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
 		82EB3FC62B9F63770058F23D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		82EB3FC92B9F63770058F23D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B467820B2BA4A0170004B930 /* TasksPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksPageView.swift; sourceTree = "<group>"; };
+		B467820D2BA4A19A0004B930 /* CalendarPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPageView.swift; sourceTree = "<group>"; };
+		B467820F2BA4A1BC0004B930 /* ConfigurationPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationPageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +58,7 @@
 			isa = PBXGroup;
 			children = (
 				82EB3FC22B9F63740058F23D /* ScheduleMasterApp.swift */,
-				82EB3FC42B9F63740058F23D /* ContentView.swift */,
+				B467820A2BA49FFC0004B930 /* PageView */,
 				82EB3FC62B9F63770058F23D /* Assets.xcassets */,
 				82EB3FC82B9F63770058F23D /* Preview Content */,
 			);
@@ -65,6 +71,17 @@
 				82EB3FC92B9F63770058F23D /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B467820A2BA49FFC0004B930 /* PageView */ = {
+			isa = PBXGroup;
+			children = (
+				82EB3FC42B9F63740058F23D /* HomePageView.swift */,
+				B467820B2BA4A0170004B930 /* TasksPageView.swift */,
+				B467820D2BA4A19A0004B930 /* CalendarPageView.swift */,
+				B467820F2BA4A1BC0004B930 /* ConfigurationPageView.swift */,
+			);
+			path = PageView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +154,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82EB3FC52B9F63740058F23D /* ContentView.swift in Sources */,
+				B46782102BA4A1BC0004B930 /* ConfigurationPageView.swift in Sources */,
+				82EB3FC52B9F63740058F23D /* HomePageView.swift in Sources */,
 				82EB3FC32B9F63740058F23D /* ScheduleMasterApp.swift in Sources */,
+				B467820C2BA4A0170004B930 /* TasksPageView.swift in Sources */,
+				B467820E2BA4A19A0004B930 /* CalendarPageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

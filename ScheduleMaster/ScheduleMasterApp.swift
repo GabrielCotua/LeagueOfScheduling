@@ -11,7 +11,7 @@ import SwiftUI
 struct ScheduleMasterApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomePageView()
         }
     }
 }
