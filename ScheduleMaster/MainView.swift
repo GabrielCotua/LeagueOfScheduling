@@ -10,6 +10,7 @@ import SwiftUI
 let mainColor = Color(red: 160/255.0, green: 200/255.0, blue: 250/255.0)
 
 let grayColor = Color(red: 244/255.0, green: 244/255.0, blue: 244/255.0)
+
 struct MainView: View {
     var body: some View {
         TabView{
@@ -23,7 +24,7 @@ struct MainView: View {
                 }
             TasksPageView()
                 .tabItem {
-                    Label("Calendar", systemImage: "calendar")
+                    Label("Tasks", systemImage: "list.clipboard")
                 }
         }
     }
