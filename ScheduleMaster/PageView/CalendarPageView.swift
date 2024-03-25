@@ -31,10 +31,10 @@ struct CalendarPageView: View {
             }
             LazyVGrid(columns: columns) {
                 ForEach(days, id: \.self) { day in
-                    //if day.monthInt != date.monthInt {
-                       // Text("")
-                    //} else {
-                    Text(days.formatted(.dateTime.day()))
+                    if day.monthInt != date.monthInt {
+                        Text("")
+                    } else {
+                        Text(day.formatted(.dateTime.day()))
                             .fontWeight(.bold)
                             .foregroundStyle(.secondary)
                             .frame(maxWidth: .infinity, minHeight: 40)
@@ -52,7 +52,7 @@ struct CalendarPageView: View {
                     }
                 }
             }
-        //}
+        }
         .padding()
         .onAppear {
             days = date.calendarDisplayDays

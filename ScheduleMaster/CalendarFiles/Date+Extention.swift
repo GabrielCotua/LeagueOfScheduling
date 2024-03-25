@@ -75,6 +75,6 @@ extension Date {
     }
     
     var startOfDay: Date {
-        Calendar.startOfDay(for: self)
+        Calendar.current.startOfDay(for: self)
     }
 }
