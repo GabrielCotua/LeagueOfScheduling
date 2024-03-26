@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8210B4DB2BA4A1EF00E3B2EE /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8210B4DA2BA4A1EF00E3B2EE /* MainView.swift */; };
+		829E95052BB1D35400D6D676 /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829E95042BB1D35400D6D676 /* AddTaskView.swift */; };
 		82EB3FC32B9F63740058F23D /* ScheduleMasterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EB3FC22B9F63740058F23D /* ScheduleMasterApp.swift */; };
 		82EB3FC52B9F63740058F23D /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EB3FC42B9F63740058F23D /* HomePageView.swift */; };
 		82EB3FC72B9F63770058F23D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82EB3FC62B9F63770058F23D /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		8210B4DA2BA4A1EF00E3B2EE /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		829E95042BB1D35400D6D676 /* AddTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
 		82EB3FBF2B9F63740058F23D /* ScheduleMaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScheduleMaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82EB3FC22B9F63740058F23D /* ScheduleMasterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleMasterApp.swift; sourceTree = "<group>"; };
 		82EB3FC42B9F63740058F23D /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
@@ -83,8 +85,9 @@
 			isa = PBXGroup;
 			children = (
 				82EB3FC42B9F63740058F23D /* HomePageView.swift */,
-				B467820B2BA4A0170004B930 /* TasksPageView.swift */,
 				B467820D2BA4A19A0004B930 /* CalendarPageView.swift */,
+				B467820B2BA4A0170004B930 /* TasksPageView.swift */,
+				829E95042BB1D35400D6D676 /* AddTaskView.swift */,
 				B467820F2BA4A1BC0004B930 /* ConfigurationPageView.swift */,
 			);
 			path = PageView;
@@ -171,6 +174,7 @@
 				B46782102BA4A1BC0004B930 /* ConfigurationPageView.swift in Sources */,
 				8210B4DB2BA4A1EF00E3B2EE /* MainView.swift in Sources */,
 				82EB3FC52B9F63740058F23D /* HomePageView.swift in Sources */,
+				829E95052BB1D35400D6D676 /* AddTaskView.swift in Sources */,
 				B46782122BA4D4C60004B930 /* Date+Extention.swift in Sources */,
 				82EB3FC32B9F63740058F23D /* ScheduleMasterApp.swift in Sources */,
 				B467820C2BA4A0170004B930 /* TasksPageView.swift in Sources */,

@@ -9,7 +9,25 @@ import SwiftUI
 
 struct TasksPageView: View {
     var body: some View {
-        Text("Hello, World!")
+        NavigationStack{
+            Section{
+                VStack(alignment: .trailing){
+                    Spacer()
+                    HStack{
+                        Spacer()
+                        NavigationLink(destination: AddTaskView()){
+                            Image(systemName: "plus")
+                                .font(.system(size: 50))
+                                .padding()
+                                .background(mainColor)
+                                .cornerRadius(20)
+                        }
+                        .padding()
+                    }
+                }
+            }
+            .navigationTitle("Tasks")
+        }
     }
 }
 
