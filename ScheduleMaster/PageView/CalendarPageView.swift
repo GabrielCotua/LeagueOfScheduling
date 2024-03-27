@@ -14,13 +14,17 @@ struct CalendarPageView: View {
     let columns = Array(repeating: GridItem(.flexible()), count: 7)
     @State private var days: [Date] = []
     var body: some View {
+        
+        
         VStack {
             LabeledContent("Calendar Color") {
                 ColorPicker("", selection: $color, supportsOpacity: false)
             }
+            
             LabeledContent("Date/Time") {
                 DatePicker("", selection: $date)
             }
+            
             HStack{
                 ForEach(daysOfWeek.indices, id: \.self) { index in
                     Text(daysOfWeek[index])
@@ -34,6 +38,7 @@ struct CalendarPageView: View {
                     if day.monthInt != date.monthInt {
                         Text("")
                     } else {
+                        //try not to touch the text below, somehow is working now
                         Text(day.formatted(.dateTime.day()))
                             .fontWeight(.bold)
                             .foregroundStyle(.secondary)
@@ -52,6 +57,18 @@ struct CalendarPageView: View {
                     }
                 }
             }
+            LazyVStack {
+                ForEach(1...10, id: \.self) { count in
+                    Text("Task del Dia \(count)")
+                        .background(
+                            Rectangle()
+                                .foregroundStyle(
+                                    .opacity(0.3)
+                                )
+                            )
+                }
+            }
+            Spacer()
         }
         .padding()
         .onAppear {
