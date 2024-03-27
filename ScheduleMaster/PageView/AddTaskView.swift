@@ -29,12 +29,11 @@ struct AddTaskView: View {
     @State private var taskType = "Work meeting"
     
     @State private var taskName = ""
-    
     @State private var extraDescription = false
-    
     @State private var textDescription = ""
+    @State private var timeMinutes: Double = 0
+    @State private var timeHours: Double = 0
     
-    @State private var time: Double = 0
     
     var body: some View {
         NavigationStack{
@@ -52,6 +51,7 @@ struct AddTaskView: View {
                             }
                     }
                 }
+                
                 Section("Description"){
                     Toggle("Do you want to add a description", isOn: $extraDescription.animation())
                     if extraDescription{
@@ -60,9 +60,21 @@ struct AddTaskView: View {
                     }
                 }.pickerStyle(.navigationLink)
                 
-                Section("estimated time (minutes)"){
-                    Slider(value: $time, in: 0...120)
-                    Text("\(time, specifier: "%.0f" + " Minutes")")
+                Section("estimated time"){
+                    HStack{
+                        Text("Hours    ")
+                            
+                        Slider(value: $timeHours,
+                               in: 0...8,
+                               step: 1)
+                    }
+                    HStack{
+                        Text("Minutes ")
+                        Slider(value: $timeMinutes,
+                               in: 0...60,
+                               step: 5)
+                    }
+                    Text("\(timeHours, specifier: "%.0f" + " Hours ")\(timeMinutes, specifier: "%.0f" + " Minutes")")
                 }
             }
             .navigationTitle("New Task")
