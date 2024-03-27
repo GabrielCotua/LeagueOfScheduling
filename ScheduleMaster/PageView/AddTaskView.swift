@@ -8,29 +8,23 @@
 import SwiftUI
 
 
+class GlobalTasks: ObservableObject {
+    @Published var tasks: [Task] = []
+}
+
+
 class Task {
-    var name: String
+    var name: Binding<String>
     var description: String
     
-    init(name: String, description: String) {
+    init(name: Binding<String>, description: String) {
         self.name = name
         self.description = description
-    }
-    
-    func setName(name: String) -> Void{
-        self.name = name
-    }
-    func setDesscription(description: String) -> Void{
-        self.description = description
-    }
-    func test() -> String{
-        return self.name + self.description
     }
 }
 
 
 struct AddTaskView: View {
-    
     let taskTypes = ["Work meeting","Homeworks", "Workout", "Hang out", "Custom"]
     @State private var taskType = "Work meeting"
     
@@ -39,6 +33,8 @@ struct AddTaskView: View {
     @State private var extraDescription = false
     
     @State private var textDescription = ""
+    
+    @State private var time: Double = 0
     
     var body: some View {
         NavigationStack{
@@ -63,6 +59,11 @@ struct AddTaskView: View {
                                 .lineLimit(1...10)
                     }
                 }.pickerStyle(.navigationLink)
+                
+                Section("estimated time (minutes)"){
+                    Slider(value: $time, in: 0...120)
+                    Text("\(time, specifier: "%.0f" + " Minutes")")
+                }
             }
             .navigationTitle("New Task")
         }
