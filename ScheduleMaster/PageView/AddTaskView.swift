@@ -8,6 +8,27 @@
 import SwiftUI
 
 
+class Task {
+    var name: String
+    var description: String
+    
+    init(name: String, description: String) {
+        self.name = name
+        self.description = description
+    }
+    
+    func setName(name: String) -> Void{
+        self.name = name
+    }
+    func setDesscription(description: String) -> Void{
+        self.description = description
+    }
+    func test() -> String{
+        return self.name + self.description
+    }
+}
+
+
 struct AddTaskView: View {
     
     let taskTypes = ["Work meeting","Homeworks", "Workout", "Hang out", "Custom"]
@@ -34,7 +55,6 @@ struct AddTaskView: View {
                                 TextField("Type here", text: $taskName)
                             }
                     }
-                    
                 }
                 Section("Description"){
                     Toggle("Do you want to add a description", isOn: $extraDescription.animation())
