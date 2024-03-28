@@ -15,6 +15,7 @@ struct TaskViewsIntoCalendar: View {
                 Text("Task del Dia \(count)")
                     .background(
                         Rectangle()
+                            .frame(width:350)
                             .foregroundStyle(
                                 .opacity(0.3)
                     )
