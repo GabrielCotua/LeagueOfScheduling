@@ -15,7 +15,6 @@ struct CalendarPageView: View {
     @State private var days: [Date] = []
     var body: some View {
         
-        
         VStack {
             LabeledContent("Calendar Color") {
                 ColorPicker("", selection: $color, supportsOpacity: false)
@@ -70,6 +69,7 @@ struct CalendarPageView: View {
             }
             Spacer()
         }
+        
         .padding()
         .onAppear {
             days = date.calendarDisplayDays
