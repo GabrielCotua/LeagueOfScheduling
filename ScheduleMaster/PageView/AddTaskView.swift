@@ -25,7 +25,7 @@ class Task {
 
 
 struct AddTaskView: View {
-    let taskTypes = ["Work meeting","Homeworks", "Workout", "Hang out", "Custom"]
+    let taskTypes = ["Work Meeting","Homework", "Workout", "Social Event", "Custom"]
     @State private var taskType = "Work meeting"
     
     @State private var taskName = ""
