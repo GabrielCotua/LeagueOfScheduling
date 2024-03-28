@@ -17,7 +17,7 @@ struct TasksPageView: View {
                         Spacer()
                         NavigationLink(destination: AddTaskView()){
                             Image(systemName: "plus")
-                                .font(.system(size: 50))
+                                .font(.system(size: 30))
                                 .padding()
                                 .background(mainColor)
                                 .cornerRadius(20)

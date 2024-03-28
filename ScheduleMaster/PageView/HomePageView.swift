@@ -23,13 +23,12 @@ struct HomePageView: View {
                     .font(.title3)
                     .fontWeight(.semibold)
                     .padding()
-                    .background(grayColor)
+                    .background(.gray)
                     .cornerRadius(20)
                     .padding()
                     
                     
-                    VStack(alignment: .leading)
-                    {
+                    VStack(alignment: .leading) {
                         Text("Current task: ")
                             .font(.title3)
                             .fontWeight(.semibold)
@@ -37,7 +36,7 @@ struct HomePageView: View {
                         Text("uidsfuihdisfndfisufhnkgndlkgndfgnfdkgslnfkgnskfgnsklgnlfkdgnslfgkndlgnfklgndslkgndlsk")
                     }
                     .padding()
-                    .background(mainColor)
+                    .background(.tint)
                     .cornerRadius(20)
                     .padding()
                     
@@ -50,7 +49,7 @@ struct HomePageView: View {
                         Text("uhaefihfdiuopalfhmvuhfuoefhioaehoaiildkjfglsjg")
                     }
                     .padding()
-                    .background(mainColor)
+                    .background(.tint)
                     .cornerRadius(20)
                     .padding()
                     

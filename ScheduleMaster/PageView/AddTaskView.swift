@@ -31,8 +31,8 @@ struct AddTaskView: View {
     @State private var taskName = ""
     @State private var extraDescription = false
     @State private var textDescription = ""
-    @State private var timeMinutes: Double = 0
-    @State private var timeHours: Double = 0
+    @State private var timeMinutes: Int = 0
+    @State private var timeHours: Int = 0
     
     
     var body: some View {
@@ -61,7 +61,32 @@ struct AddTaskView: View {
                 }.pickerStyle(.navigationLink)
                 
                 Section("estimated time"){
+                    
                     HStack{
+                        Spacer()
+                        Picker("", selection: $timeHours){
+                            ForEach(0...8, id: \.self){ i in
+                                Text("\(i)").tag(i)
+                            }
+                        }
+                        .pickerStyle(WheelPickerStyle())
+                        .frame(width: 50)
+                        Text("Hours").fontWeight(.bold)
+                        Spacer()
+                        Picker("", selection: $timeMinutes){
+                            ForEach(0...59, id: \.self){ i in
+                                Text("\(i)").tag(i)
+                            }
+                            
+                        }.pickerStyle(WheelPickerStyle())
+                            .frame(width: 60)
+                            Text("Min").fontWeight(.bold)
+                        Spacer()
+                    }.padding(.horizontal)
+                    
+                    Text("\(timeHours) Hours \(timeMinutes) Minutes")
+                }
+                   /* HStack{
                         Text("Hours    ")
                             
                         Slider(value: $timeHours,
@@ -74,13 +99,13 @@ struct AddTaskView: View {
                                in: 0...60,
                                step: 5)
                     }
-                    Text("\(timeHours, specifier: "%.0f" + " Hours ")\(timeMinutes, specifier: "%.0f" + " Minutes")")
+                    Text("\(timeHours, specifier: "%.0f" + " Hours ")\(timeMinutes, specifier: "%.0f" + " Minutes")")*/
                 }
             }
             .navigationTitle("New Task")
         }
     }
-}
+
 
 #Preview {
     AddTaskView()
