@@ -8,7 +8,7 @@
 import Foundation
 
 extension Date {
-    //https://gist.github.com/StewartLynch/90ecac7eff9fe438bba580e96643fe70
+    //credits to: https://gist.github.com/StewartLynch/90ecac7eff9fe438bba580e96643fe70
     static var capitalizedFirstLettersOfWeekdays: [String] {
         let calendar = Calendar.current
         let weekdays = calendar.shortWeekdaySymbols

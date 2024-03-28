@@ -4,7 +4,7 @@
 //
 //  Created by 64023073 on 3/15/24.
 //
-// reference https://www.youtube.com/watch?v=X_boPC1tg_Y
+//  reference https://www.youtube.com/watch?v=X_boPC1tg_Y
 import SwiftUI
 
 struct CalendarPageView: View {
@@ -15,15 +15,15 @@ struct CalendarPageView: View {
     @State private var days: [Date] = []
     var body: some View {
         
-        
         VStack {
-            LabeledContent("Calendar Color") {
-                ColorPicker("", selection: $color, supportsOpacity: false)
-            }
+        //  LabeledContent("Calendar Color") {
+        //    ColorPicker("", selection: $color, supportsOpacity: false)
+        //    }
             
             LabeledContent("Date/Time") {
                 DatePicker("", selection: $date)
             }
+                .padding()
             
             HStack{
                 ForEach(daysOfWeek.indices, id: \.self) { index in
@@ -52,24 +52,18 @@ struct CalendarPageView: View {
                                         ? .red.opacity(0.3)
                                         //regular day for the whole calendar
                                         : color.opacity(0.3)
-                                    )
                             )
+                        )
                     }
                 }
             }
-            LazyVStack {
-                ForEach(1...10, id: \.self) { count in
-                    Text("Task del Dia \(count)")
-                        .background(
-                            Rectangle()
-                                .foregroundStyle(
-                                    .opacity(0.3)
-                                )
-                            )
-                }
+            
+            TabView {
+                TaskViewsIntoCalendar()
             }
             Spacer()
         }
+        
         .padding()
         .onAppear {
             days = date.calendarDisplayDays

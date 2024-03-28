@@ -1,0 +1,29 @@
+//
+//  TaskViewsIntoCalendar.swift
+//  ScheduleMaster
+//
+//  Created by 64023073 on 3/28/24.
+//
+
+import SwiftUI
+
+struct TaskViewsIntoCalendar: View {
+    var body: some View {
+        LazyVStack {
+            ForEach(1...10, id: \.self) { count in
+                //waiting for taks objects to be created
+                Text("Task del Dia \(count)")
+                    .background(
+                        Rectangle()
+                            .foregroundStyle(
+                                .opacity(0.3)
+                    )
+                )
+            }
+        }
+    }
+}
+
+#Preview {
+    TaskViewsIntoCalendar()
+}

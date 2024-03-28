@@ -17,7 +17,7 @@
 		B467820E2BA4A19A0004B930 /* CalendarPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B467820D2BA4A19A0004B930 /* CalendarPageView.swift */; };
 		B46782102BA4A1BC0004B930 /* ConfigurationPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B467820F2BA4A1BC0004B930 /* ConfigurationPageView.swift */; };
 		B46782122BA4D4C60004B930 /* Date+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46782112BA4D4C60004B930 /* Date+Extention.swift */; };
-		B496033F2BB32BB200918BE8 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B496033E2BB32BB200918BE8 /* SwiftUIView.swift */; };
+		B49603412BB5C59E00918BE8 /* TaskViewsIntoCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49603402BB5C59E00918BE8 /* TaskViewsIntoCalendar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,7 +32,7 @@
 		B467820D2BA4A19A0004B930 /* CalendarPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPageView.swift; sourceTree = "<group>"; };
 		B467820F2BA4A1BC0004B930 /* ConfigurationPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationPageView.swift; sourceTree = "<group>"; };
 		B46782112BA4D4C60004B930 /* Date+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extention.swift"; sourceTree = "<group>"; };
-		B496033E2BB32BB200918BE8 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		B49603402BB5C59E00918BE8 /* TaskViewsIntoCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewsIntoCalendar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				B46782112BA4D4C60004B930 /* Date+Extention.swift */,
-				B496033E2BB32BB200918BE8 /* SwiftUIView.swift */,
+				B49603402BB5C59E00918BE8 /* TaskViewsIntoCalendar.swift */,
 			);
 			path = CalendarFiles;
 			sourceTree = "<group>";
@@ -176,9 +176,9 @@
 			files = (
 				B46782102BA4A1BC0004B930 /* ConfigurationPageView.swift in Sources */,
 				8210B4DB2BA4A1EF00E3B2EE /* MainView.swift in Sources */,
-				B496033F2BB32BB200918BE8 /* SwiftUIView.swift in Sources */,
 				82EB3FC52B9F63740058F23D /* HomePageView.swift in Sources */,
 				829E95052BB1D35400D6D676 /* AddTaskView.swift in Sources */,
+				B49603412BB5C59E00918BE8 /* TaskViewsIntoCalendar.swift in Sources */,
 				B46782122BA4D4C60004B930 /* Date+Extention.swift in Sources */,
 				82EB3FC32B9F63740058F23D /* ScheduleMasterApp.swift in Sources */,
 				B467820C2BA4A0170004B930 /* TasksPageView.swift in Sources */,
