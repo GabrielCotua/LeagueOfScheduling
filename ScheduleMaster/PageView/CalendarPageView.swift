@@ -16,13 +16,14 @@ struct CalendarPageView: View {
     var body: some View {
         
         VStack {
-            LabeledContent("Calendar Color") {
-                ColorPicker("", selection: $color, supportsOpacity: false)
-            }
+        //  LabeledContent("Calendar Color") {
+        //    ColorPicker("", selection: $color, supportsOpacity: false)
+        //    }
             
             LabeledContent("Date/Time") {
                 DatePicker("", selection: $date)
             }
+                .padding()
             
             HStack{
                 ForEach(daysOfWeek.indices, id: \.self) { index in
@@ -58,6 +59,7 @@ struct CalendarPageView: View {
             }
             LazyVStack {
                 ForEach(1...10, id: \.self) { count in
+                    //waiting for taks objects to be created
                     Text("Task del Dia \(count)")
                         .background(
                             Rectangle()
