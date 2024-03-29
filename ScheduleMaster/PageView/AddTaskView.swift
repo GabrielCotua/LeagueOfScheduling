@@ -8,12 +8,8 @@
 import SwiftUI
 
 
-class GlobalTasks: ObservableObject {
-    @Published var tasks: [Task] = []
-}
-
-
-struct Task {
+struct Task: Identifiable {
+    let id = UUID()
     var name: String
     var description: String
     var timeMinutes: Int
@@ -30,6 +26,10 @@ struct Task {
 
 struct AddTaskView: View {
     @State private var task = Task(name: "", description: "", timeMinutes: 0, timeHours: 0)
+    
+    @StateObject var globals = GlobalTasks()
+    
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         NavigationStack{
@@ -77,6 +77,12 @@ struct AddTaskView: View {
                     Text("\(task.timeHours) Hours \(task.timeMinutes) Minutes")
                 }
                 
+                Button {
+                    globals.tasks.append(task)
+                    dismiss()
+                } label: {
+                    Text("Submit")
+                }
             }
         }
         .navigationTitle("New Task")

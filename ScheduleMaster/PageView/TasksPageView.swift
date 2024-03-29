@@ -7,9 +7,26 @@
 
 import SwiftUI
 
+class GlobalTasks: ObservableObject {
+    @Published var tasks: [Task] = []
+}
+
 struct TasksPageView: View {
+    @StateObject var globals = GlobalTasks()
+    
     var body: some View {
         NavigationStack{
+            VStack {
+                ForEach(globals.tasks) { task in
+                    VStack {
+                        Text(task.name)
+                        Text(task.description)
+                        Text(String(task.timeHours))
+                        Text(String(task.timeMinutes))
+                    }
+                }
+            }
+            
             Section{
                 VStack(alignment: .trailing){
                     Spacer()
