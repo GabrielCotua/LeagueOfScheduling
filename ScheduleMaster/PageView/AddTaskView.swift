@@ -9,62 +9,52 @@ import SwiftUI
 
 
 class GlobalTasks: ObservableObject {
-    @Published var tasks: [newTask] = []
+    @Published var tasks: [Task] = []
 }
 
 
-class newTask {
+struct Task {
     var name: String
     var description: String
+    var timeMinutes: Int
+    var timeHours: Int
     
-    init(name: String, description: String) {
+    init(name: String, description: String, timeMinutes: Int, timeHours: Int) {
         self.name = name
         self.description = description
+        self.timeMinutes = timeMinutes
+        self.timeHours = timeHours
     }
 }
 
 
 struct AddTaskView: View {
-    let taskTypes = ["Work Meeting","Homework", "Workout", "Social Event", "Custom"]
-    @State private var taskType = "Work meeting"
-    
-    @State private var taskName = ""
-    @State private var extraDescription = false
-    @State private var textDescription = ""
-    @State private var timeMinutes: Int = 0
-    @State private var timeHours: Int = 0
-    
+    @State private var task = Task(name: "", description: "", timeMinutes: 0, timeHours: 0)
     
     var body: some View {
         NavigationStack{
             List{
-                Section("Type"){
-                    Picker("What task type do you want to add?", selection: $taskType){
-                        ForEach(taskTypes, id: \.self){
-                            Text($0)
-                        }
-                    }.pickerStyle(.navigationLink)
-                    if taskType == "Custom"{
-                            HStack{
-                                Text("Custom task name: ")
-                                TextField("Type here", text: $taskName)
-                            }
+                Section("Name"){
+                    
+                    HStack{
+                        
+                        TextField("Name", text: $task.name)
                     }
+                    
                 }
                 
                 Section("Description"){
-                    Toggle("Do you want to add a description", isOn: $extraDescription.animation())
-                    if extraDescription{
-                            TextField("Type description here", text: $textDescription,  axis: .vertical)
-                                .lineLimit(1...10)
-                    }
+                    
+                    TextField("Description", text: $task.description,  axis: .vertical)
+                        .lineLimit(1...10)
+                    
                 }.pickerStyle(.navigationLink)
                 
                 Section("estimated time"){
                     
                     HStack{
                         Spacer()
-                        Picker("", selection: $timeHours){
+                        Picker("", selection: $task.timeHours){
                             ForEach(0...8, id: \.self){ i in
                                 Text("\(i)").tag(i)
                             }
@@ -73,38 +63,25 @@ struct AddTaskView: View {
                         .frame(width: 50)
                         Text("Hours").fontWeight(.bold)
                         Spacer()
-                        Picker("", selection: $timeMinutes){
+                        Picker("", selection: $task.timeMinutes){
                             ForEach(0...59, id: \.self){ i in
                                 Text("\(i)").tag(i)
                             }
                             
                         }.pickerStyle(WheelPickerStyle())
                             .frame(width: 60)
-                            Text("Min").fontWeight(.bold)
+                        Text("Min").fontWeight(.bold)
                         Spacer()
                     }.padding(.horizontal)
                     
-                    Text("\(timeHours) Hours \(timeMinutes) Minutes")
+                    Text("\(task.timeHours) Hours \(task.timeMinutes) Minutes")
                 }
-                   /* HStack{
-                        Text("Hours    ")
-                            
-                        Slider(value: $timeHours,
-                               in: 0...8,
-                               step: 1)
-                    }
-                    HStack{
-                        Text("Minutes ")
-                        Slider(value: $timeMinutes,
-                               in: 0...60,
-                               step: 5)
-                    }
-                    Text("\(timeHours, specifier: "%.0f" + " Hours ")\(timeMinutes, specifier: "%.0f" + " Minutes")")*/
-                }
+                
             }
-            .navigationTitle("New Task")
         }
+        .navigationTitle("New Task")
     }
+}
 
 
 #Preview {
