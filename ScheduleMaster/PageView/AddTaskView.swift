@@ -9,15 +9,15 @@ import SwiftUI
 
 
 class GlobalTasks: ObservableObject {
-    @Published var tasks: [Task] = []
+    @Published var tasks: [newTask] = []
 }
 
 
-class Task {
-    var name: Binding<String>
+class newTask {
+    var name: String
     var description: String
     
-    init(name: Binding<String>, description: String) {
+    init(name: String, description: String) {
         self.name = name
         self.description = description
     }
