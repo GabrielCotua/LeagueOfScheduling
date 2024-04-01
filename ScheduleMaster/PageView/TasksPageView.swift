@@ -7,22 +7,20 @@
 
 import SwiftUI
 
-class GlobalTasks: ObservableObject {
-    @Published var tasks: [Task] = []
-}
-
 struct TasksPageView: View {
-    @StateObject var globals = GlobalTasks()
+    @Binding var tasks: [Task]
     
     var body: some View {
         NavigationStack{
             VStack {
-                ForEach(globals.tasks) { task in
+                ForEach(tasks) { task in
                     VStack {
-                        Text(task.name)
-                        Text(task.description)
-                        Text(String(task.timeHours))
-                        Text(String(task.timeMinutes))
+                        Section{
+                            Text(task.name)
+                            Text(task.description)
+                            Text(String(task.timeHours))
+                            Text(String(task.timeMinutes))
+                        }
                     }
                 }
             }
@@ -32,7 +30,7 @@ struct TasksPageView: View {
                     Spacer()
                     HStack{
                         Spacer()
-                        NavigationLink(destination: AddTaskView()){
+                        NavigationLink(destination: AddTaskView(tasks: $tasks)){
                             Image(systemName: "plus")
                                 .font(.system(size: 30))
                                 .padding()
@@ -49,5 +47,6 @@ struct TasksPageView: View {
 }
 
 #Preview {
-    TasksPageView()
+    @State var tasks: [Task] = []
+    return TasksPageView(tasks: $tasks)
 }
