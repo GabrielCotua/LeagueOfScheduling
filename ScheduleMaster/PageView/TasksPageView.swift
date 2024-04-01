@@ -16,10 +16,32 @@ struct TasksPageView: View {
                 ForEach(tasks) { task in
                     VStack {
                         Section{
-                            Text(task.name)
+                            VStack(alignment: .leading) {
+                                HStack{
+                                    Text(task.name)
+                                        .font(.title3)
+                                        .fontWeight(.semibold)
+                                    Spacer()
+                                    Text("\(task.timeHours) Hours \(task.timeMinutes) Minutes")
+                                }
+                                Divider()
+                                HStack{
+                                    Text(task.description)
+                                      Spacer()
+                                    Text("Rating: \(task.difficultyRating, specifier: "%.0f")")
+                                }
+                            }
+                            .padding()
+                            .background(.tint)
+                            .cornerRadius(20)
+                            .padding()
+                            
+                            
+                           /* Text(task.name)
                             Text(task.description)
                             Text(String(task.timeHours))
                             Text(String(task.timeMinutes))
+                            Text(String(task.difficultyRating))*/
                         }
                     }
                 }

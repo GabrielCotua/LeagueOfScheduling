@@ -14,18 +14,20 @@ struct Task: Identifiable {
     var description: String
     var timeMinutes: Int
     var timeHours: Int
+    var difficultyRating: Double
     
-    init(name: String, description: String, timeMinutes: Int, timeHours: Int) {
+    init(name: String, description: String, timeMinutes: Int, timeHours: Int, difficultyRating: Double) {
         self.name = name
         self.description = description
         self.timeMinutes = timeMinutes
         self.timeHours = timeHours
+        self.difficultyRating = difficultyRating
     }
 }
 
 
 struct AddTaskView: View {
-    @State private var task = Task(name: "", description: "", timeMinutes: 0, timeHours: 0)
+    @State private var task = Task(name: "", description: "", timeMinutes: 0, timeHours: 0, difficultyRating: 0.0)
     
     @Binding var tasks: [Task]
     
@@ -77,12 +79,24 @@ struct AddTaskView: View {
                     Text("\(task.timeHours) Hours \(task.timeMinutes) Minutes")
                 }
                 
+                Section("Difficulty Rating"){
+                    HStack{
+                        Text("\(task.difficultyRating, specifier: "%.0f")")
+                            .padding(.horizontal)
+                        Slider(value: $task.difficultyRating, in: 1...5, step: 1){
+                        }
+                    
+                    }
+                }
+                
                 Button {
                     tasks.append(task)
                     dismiss()
                 } label: {
                     Text("Submit")
                 }
+                
+                
             }
         }
         .navigationTitle("New Task")
