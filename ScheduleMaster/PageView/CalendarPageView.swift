@@ -59,7 +59,7 @@ struct CalendarPageView: View {
             }
             
             TabView {
-                TaskViewsIntoCalendar()
+                TaskViewsIntoCalendarView()
             }
             Spacer()
         }

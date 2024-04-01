@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TaskViewsIntoCalendar: View {
+struct TaskViewsIntoCalendarView: View {
     var body: some View {
         LazyVStack {
             ForEach(1...10, id: \.self) { count in
@@ -26,5 +26,5 @@ struct TaskViewsIntoCalendar: View {
 }
 
 #Preview {
-    TaskViewsIntoCalendar()
+    TaskViewsIntoCalendarView()
 }
