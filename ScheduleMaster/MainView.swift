@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MainView: View {
+    @State var tasks: [Task] = []
+    
     var body: some View {
         TabView{
             HomePageView()
@@ -18,7 +20,7 @@ struct MainView: View {
                 .tabItem {
                     Label("Calendar", systemImage: "calendar")
                 }
-            TasksPageView()
+            TasksPageView(tasks: $tasks)
                 .tabItem {
                     Label("Tasks", systemImage: "list.clipboard")
                 }

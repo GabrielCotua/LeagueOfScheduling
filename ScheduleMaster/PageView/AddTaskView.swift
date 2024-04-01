@@ -27,7 +27,7 @@ struct Task: Identifiable {
 struct AddTaskView: View {
     @State private var task = Task(name: "", description: "", timeMinutes: 0, timeHours: 0)
     
-    @StateObject var globals = GlobalTasks()
+    @Binding var tasks: [Task]
     
     @Environment(\.dismiss) var dismiss
     
@@ -78,7 +78,7 @@ struct AddTaskView: View {
                 }
                 
                 Button {
-                    globals.tasks.append(task)
+                    tasks.append(task)
                     dismiss()
                 } label: {
                     Text("Submit")
@@ -89,7 +89,7 @@ struct AddTaskView: View {
     }
 }
 
-
 #Preview {
-    AddTaskView()
+    @State var tasks: [Task] = []
+    return AddTaskView(tasks: $tasks)
 }
