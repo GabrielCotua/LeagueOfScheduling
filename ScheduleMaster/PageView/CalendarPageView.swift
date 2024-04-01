@@ -38,25 +38,31 @@ struct CalendarPageView: View {
                     if day.monthInt != date.monthInt {
                         Text("")
                     } else {
-                        //try not to touch the text below, somehow is working now
-                        Text(day.formatted(.dateTime.day()))
-                            .fontWeight(.bold)
-                            .foregroundStyle(.secondary)
-                            .frame(maxWidth: .infinity, minHeight: 40)
-                            .background(
-                                Circle()
-                                    .foregroundStyle(
-                                        
-                                        //changes the color of the day we are currently on
-                                        Date.now.startOfDay == day.startOfDay
-                                        ? .red.opacity(0.3)
-                                        //regular day for the whole calendar
-                                        : color.opacity(0.3)
-                            )
-                        )
+                        Button(action: {
+                            // Handle the action when the day is tapped
+                            print("Tapped on \(day)")
+                        }) {
+                            // Text that becomes interactive
+                            Text(day.formatted(.dateTime.day()))
+                                .fontWeight(.bold)
+                                .foregroundStyle(.secondary)
+                                .frame(maxWidth: .infinity, minHeight: 40)
+                                .background(
+                                    Circle()
+                                        .foregroundStyle(
+                                            // Changes the color of the day we are currently on
+                                            Date.now.startOfDay == day.startOfDay
+                                                ? .red.opacity(0.3)
+                                                // Regular day for the whole calendar
+                                                : color.opacity(0.3)
+                                        )
+                                )
+                        }
+                        .buttonStyle(PlainButtonStyle()) // Use plain button style to remove the default button style
                     }
                 }
             }
+
             
             TabView {
                 TaskViewsIntoCalendarView()
