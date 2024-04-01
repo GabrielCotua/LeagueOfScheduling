@@ -36,7 +36,7 @@ struct TasksPageView: View {
                             Image(systemName: "plus")
                                 .font(.system(size: 30))
                                 .padding()
-                                .background(mainColor)
+                                .background(.cyan)
                                 .cornerRadius(20)
                         }
                         .padding()

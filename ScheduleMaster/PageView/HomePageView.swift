@@ -23,8 +23,9 @@ struct HomePageView: View {
                     .font(.title3)
                     .fontWeight(.semibold)
                     .padding()
-                    .background(.gray)
+                    .background()
                     .cornerRadius(20)
+                    .shadow(radius: 1)
                     .padding()
                     
                     
