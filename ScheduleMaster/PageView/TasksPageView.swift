@@ -35,19 +35,12 @@ struct TasksPageView: View {
                             .background(.tint)
                             .cornerRadius(20)
                             .padding()
-                            
-                            
-                           /* Text(task.name)
-                            Text(task.description)
-                            Text(String(task.timeHours))
-                            Text(String(task.timeMinutes))
-                            Text(String(task.difficultyRating))*/
                         }
                     }
                 }
             }
             
-            Section{
+           Section{
                 VStack(alignment: .trailing){
                     Spacer()
                     HStack{
