@@ -25,9 +25,24 @@ struct Task: Identifiable {
     }
 }
 
+struct Dates: Identifiable {
+    let id = UUID()
+    var month: String
+    var day: String
+    var timeStart: Int
+    var timeEnd: Int
+    
+    init(month: String, day: String, timeStart: Int, timeEnd: Int){
+        self.month = month
+        self.day = day
+        self.timeStart = timeStart
+        self.timeEnd = timeEnd
+    }
+}
+
 
 struct AddTaskView: View {
-    @State private var task = Task(name: "", description: "", timeMinutes: 0, timeHours: 0, difficultyRating: 0.0)
+    @State private var task = Task(name: "", description: "", timeMinutes: 0, timeHours: 0, difficultyRating: 1.0)
     
     @Binding var tasks: [Task]
     
@@ -50,7 +65,8 @@ struct AddTaskView: View {
                     TextField("Description", text: $task.description,  axis: .vertical)
                         .lineLimit(1...10)
                     
-                }.pickerStyle(.navigationLink)
+                }
+                .pickerStyle(.navigationLink)
                 
                 Section("estimated time"){
                     
@@ -87,6 +103,10 @@ struct AddTaskView: View {
                         }
                     
                     }
+                }
+                
+                Section("Date and Time"){
+                    
                 }
                 
                 Button {
