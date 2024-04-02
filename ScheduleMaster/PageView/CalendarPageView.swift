@@ -59,7 +59,8 @@ struct CalendarPageView: View {
                                         )
                                 )
                         }
-                        .buttonStyle(PlainButtonStyle()) // Use plain button style to remove the default button style
+                        .buttonStyle(PlainButtonStyle()) 
+                        // Use plain button style to remove the default button style
                     }
                 }
             }
@@ -67,10 +68,6 @@ struct CalendarPageView: View {
             
             TabView {
                 TaskViewsIntoCalendarView(tasks: $tasks)
-                    .tabItem {
-                             Image(systemName: "list.bullet")
-                             Text("Tasks")
-                         }
             }
             Spacer()
         }
