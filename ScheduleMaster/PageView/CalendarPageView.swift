@@ -13,6 +13,11 @@ struct CalendarPageView: View {
     @State private var date = Date.now
     let daysOfWeek = Date.capitalizedFirstLettersOfWeekdays
     let columns = Array(repeating: GridItem(.flexible()), count: 7)
+    let myFormat = Date.FormatStyle()
+        .year()
+        .day()
+        .month()
+        .locale(Locale(identifier: "en_US"))
     @State private var days: [Date] = []
     var body: some View {
         
@@ -41,7 +46,8 @@ struct CalendarPageView: View {
                     } else {
                         Button(action: {
                             // Handle the action when the day is tapped
-                            print("Tapped on \(day)")
+                            //Date().formatted(myFormat) is how I know the day that was tapped on, it gives the month day, year
+                            print("Tapped on \(Date().formatted(myFormat))")
                         }) {
                             // Text that becomes interactive
                             Text(day.formatted(.dateTime.day()))
@@ -62,8 +68,8 @@ struct CalendarPageView: View {
                         .buttonStyle(PlainButtonStyle()) 
                         // Use plain button style to remove the default button style
                     }
-                }
-            }
+                }// end of the foreach loop
+            } //end bracket of the LazyGrid layout
 
             
             TabView {
