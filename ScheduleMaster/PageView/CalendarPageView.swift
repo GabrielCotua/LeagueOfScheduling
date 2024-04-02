@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CalendarPageView: View {
+    @Binding var tasks: [Task]
     @State private var color: Color = .blue
     @State private var date = Date.now
     let daysOfWeek = Date.capitalizedFirstLettersOfWeekdays
@@ -65,7 +66,11 @@ struct CalendarPageView: View {
 
             
             TabView {
-                TaskViewsIntoCalendarView()
+                TaskViewsIntoCalendarView(tasks: $tasks)
+                    .tabItem {
+                             Image(systemName: "list.bullet")
+                             Text("Tasks")
+                         }
             }
             Spacer()
         }
@@ -81,5 +86,6 @@ struct CalendarPageView: View {
 }
 
 #Preview {
-    CalendarPageView()
+    @State var task: [Task] = []
+    return CalendarPageView(tasks: $task)
 }

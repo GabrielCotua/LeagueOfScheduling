@@ -15,7 +15,6 @@
 		82EB3FCA2B9F63770058F23D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82EB3FC92B9F63770058F23D /* Preview Assets.xcassets */; };
 		B467820C2BA4A0170004B930 /* TasksPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B467820B2BA4A0170004B930 /* TasksPageView.swift */; };
 		B467820E2BA4A19A0004B930 /* CalendarPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B467820D2BA4A19A0004B930 /* CalendarPageView.swift */; };
-		B46782102BA4A1BC0004B930 /* ConfigurationPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B467820F2BA4A1BC0004B930 /* ConfigurationPageView.swift */; };
 		B46782122BA4D4C60004B930 /* Date+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46782112BA4D4C60004B930 /* Date+Extention.swift */; };
 		B49603412BB5C59E00918BE8 /* TaskViewsIntoCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49603402BB5C59E00918BE8 /* TaskViewsIntoCalendarView.swift */; };
 /* End PBXBuildFile section */
@@ -30,7 +29,6 @@
 		82EB3FC92B9F63770058F23D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B467820B2BA4A0170004B930 /* TasksPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksPageView.swift; sourceTree = "<group>"; };
 		B467820D2BA4A19A0004B930 /* CalendarPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPageView.swift; sourceTree = "<group>"; };
-		B467820F2BA4A1BC0004B930 /* ConfigurationPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationPageView.swift; sourceTree = "<group>"; };
 		B46782112BA4D4C60004B930 /* Date+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extention.swift"; sourceTree = "<group>"; };
 		B49603402BB5C59E00918BE8 /* TaskViewsIntoCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewsIntoCalendarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,7 +88,6 @@
 				B467820D2BA4A19A0004B930 /* CalendarPageView.swift */,
 				B467820B2BA4A0170004B930 /* TasksPageView.swift */,
 				829E95042BB1D35400D6D676 /* AddTaskView.swift */,
-				B467820F2BA4A1BC0004B930 /* ConfigurationPageView.swift */,
 				B49603402BB5C59E00918BE8 /* TaskViewsIntoCalendarView.swift */,
 			);
 			path = PageView;
@@ -174,7 +171,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B46782102BA4A1BC0004B930 /* ConfigurationPageView.swift in Sources */,
 				8210B4DB2BA4A1EF00E3B2EE /* MainView.swift in Sources */,
 				82EB3FC52B9F63740058F23D /* HomePageView.swift in Sources */,
 				829E95052BB1D35400D6D676 /* AddTaskView.swift in Sources */,
