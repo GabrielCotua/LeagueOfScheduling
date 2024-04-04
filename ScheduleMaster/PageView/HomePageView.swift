@@ -18,7 +18,7 @@ struct HomePageView: View {
                     {
                         Text("Total Points: \(totalPoints)")
                         Divider()
-                        Text("Dayly Points: \(dailyPoints)")
+                        Text("Daily Points: \(dailyPoints)")
                     }
                     .font(.title3)
                     .fontWeight(.semibold)
@@ -34,7 +34,7 @@ struct HomePageView: View {
                             .font(.title3)
                             .fontWeight(.semibold)
                         Divider()
-                        Text("uidsfuihdisfndfisufhnkgndlkgndfgnfdkgslnfkgnskfgnsklgnlfkdgnslfgkndlgnfklgndslkgndlsk")
+                        Text("Workout")
                     }
                     .padding()
                     .background(.tint)
@@ -47,7 +47,7 @@ struct HomePageView: View {
                             .font(.title3)
                             .fontWeight(.semibold)
                         Divider()
-                        Text("uhaefihfdiuopalfhmvuhfuoefhioaehoaiildkjfglsjg")
+                        Text("Homework")
                     }
                     .padding()
                     .background(.tint)
