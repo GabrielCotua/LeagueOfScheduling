@@ -46,7 +46,7 @@ struct CalendarPageView: View {
                     } else {
                         Button(action: {
                             // Handle the action when the day is tapped
-                            //Date().formatted(myFormat) is how I know the day that was tapped on, it gives the month day, year
+                            // Date().formatted(myFormat) is how I know the day that was tapped on, it gives the month day, year
                             print("Tapped on \(Date().formatted(myFormat))")
                         }) {
                             // Text that becomes interactive
