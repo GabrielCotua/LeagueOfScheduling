@@ -8,41 +8,28 @@
 import SwiftUI
 
 
-struct Task: Identifiable {
+struct Task: Identifiable, Hashable{
     let id = UUID()
     var name: String
     var description: String
     var timeMinutes: Int
     var timeHours: Int
     var difficultyRating: Double
+    var date: Date
     
-    init(name: String, description: String, timeMinutes: Int, timeHours: Int, difficultyRating: Double) {
+    init(name: String, description: String, timeMinutes: Int, timeHours: Int, difficultyRating: Double, date: Date) {
         self.name = name
         self.description = description
         self.timeMinutes = timeMinutes
         self.timeHours = timeHours
         self.difficultyRating = difficultyRating
-    }
-}
-
-struct Dates: Identifiable {
-    let id = UUID()
-    var month: String
-    var day: String
-    var timeStart: Int
-    var timeEnd: Int
-    
-    init(month: String, day: String, timeStart: Int, timeEnd: Int){
-        self.month = month
-        self.day = day
-        self.timeStart = timeStart
-        self.timeEnd = timeEnd
+        self.date = date
     }
 }
 
 
 struct AddTaskView: View {
-    @State private var task = Task(name: "", description: "", timeMinutes: 0, timeHours: 0, difficultyRating: 1.0)
+    @State private var task = Task(name: "", description: "", timeMinutes: 0, timeHours: 0, difficultyRating: 1.0, date: Date())
     
     @Binding var tasks: [Task]
     

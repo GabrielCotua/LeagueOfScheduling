@@ -14,27 +14,26 @@ struct HomePageView: View {
         NavigationStack{
             Section{
                 VStack{
-                    VStack(alignment: .leading)
+                    HStack
                     {
                         Text("Total Points: \(totalPoints)")
-                        Divider()
+                        Spacer()
                         Text("Daily Points: \(dailyPoints)")
                     }
                     .font(.title3)
                     .fontWeight(.semibold)
                     .padding()
-                    .background()
-                    .cornerRadius(20)
-                    .shadow(radius: 1)
+                    .overlay(RoundedRectangle(cornerRadius: 10)
+                        .stroke(.gray, lineWidth: 5))
+                    .cornerRadius(10)
                     .padding()
                     
                     
-                    VStack(alignment: .leading) {
+                    VStack{
                         Text("Current task: ")
                             .font(.title3)
                             .fontWeight(.semibold)
                         Divider()
-                        Text("Workout")
                     }
                     .padding()
                     .background(.tint)
