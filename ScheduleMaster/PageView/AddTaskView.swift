@@ -70,6 +70,7 @@ struct AddTaskView: View {
                             }
                         }
                         .pickerStyle(WheelPickerStyle())
+                    
                         .frame(width: 50)
                         Text("Hours").fontWeight(.bold)
                         Spacer()
@@ -83,6 +84,7 @@ struct AddTaskView: View {
                         Text("Min").fontWeight(.bold)
                         Spacer()
                     }.padding(.horizontal)
+                        .frame(height: 70)
                     
                     Text("\(task.timeHours) Hours \(task.timeMinutes) Minutes")
                 }
