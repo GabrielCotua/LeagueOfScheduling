@@ -15,21 +15,26 @@ struct Task: Identifiable, Hashable{
     var timeMinutes: Int
     var timeHours: Int
     var difficultyRating: Double
-    var date: Date
+    var dateStart: Date
+    var dateEnd: Date
     
-    init(name: String, description: String, timeMinutes: Int, timeHours: Int, difficultyRating: Double, date: Date) {
+    init(name: String, description: String, timeMinutes: Int, timeHours: Int, difficultyRating: Double, dateStart: Date, dateEnd: Date) {
         self.name = name
         self.description = description
         self.timeMinutes = timeMinutes
         self.timeHours = timeHours
         self.difficultyRating = difficultyRating
-        self.date = date
+        self.dateStart = dateStart
+        self.dateEnd = dateStart
+    }
+    mutating func endUpDate(){
+        self.dateEnd = self.dateStart.addingTimeInterval(60.0*Double(timeMinutes) + 3600.0*Double(timeHours))
     }
 }
 
 
 struct AddTaskView: View {
-    @State private var task = Task(name: "", description: "", timeMinutes: 0, timeHours: 0, difficultyRating: 1.0, date: Date())
+    @State private var task = Task(name: "", description: "", timeMinutes: 0, timeHours: 0, difficultyRating: 1.0, dateStart: Date(), dateEnd: Date())
     
     @Binding var tasks: [Task]
     
@@ -93,10 +98,12 @@ struct AddTaskView: View {
                 }
                 
                 Section("Date and Time"){
-                    
+                    DatePicker("Enter the date: ", selection: $task.dateStart)
                 }
+               
                 
                 Button {
+                    task.endUpDate()
                     tasks.append(task)
                     dismiss()
                 } label: {
