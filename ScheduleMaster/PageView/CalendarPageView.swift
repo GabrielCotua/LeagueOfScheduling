@@ -9,8 +9,10 @@ import SwiftUI
 
 struct CalendarPageView: View {
     @Binding var tasks: [Task]
-    @State private var color: Color = .blue
+    @State private var maincolor: Color = .blue
+    @State private var SecondColor: Color = .green
     @State private var date = Date.now
+    @State private var selectedDay = ""
     let daysOfWeek = Date.capitalizedFirstLettersOfWeekdays
     let columns = Array(repeating: GridItem(.flexible()), count: 7)
     let myFormat = Date.FormatStyle()
@@ -35,7 +37,7 @@ struct CalendarPageView: View {
                 ForEach(daysOfWeek.indices, id: \.self) { index in
                     Text(daysOfWeek[index])
                         .fontWeight(.black)
-                        .foregroundStyle(color)
+                        .foregroundStyle(maincolor)
                         .frame(maxWidth: .infinity)
                 }
             }
@@ -46,10 +48,18 @@ struct CalendarPageView: View {
                     } else {
                         Button(action: {
                             // Handle the action when the day is tapped
+                            
+                            
                             // Date().formatted(myFormat) is how I know the day that was tapped on, it gives the month day, year
-                            print("Tapped on \(Date().formatted(myFormat))")
+                            //print("Tapped on \(Date().formatted(myFormat))")
+                            //print("\(Date().formatted(.dateTime.day()))")
+                            
+                            
+                            selectedDay = day.formatted(.dateTime.day()) //stores the date that you tapped on
+                            print(day.formatted(.dateTime.day()))
                         }) {
                             // Text that becomes interactive
+                            
                             Text(day.formatted(.dateTime.day()))
                                 .fontWeight(.bold)
                                 .foregroundStyle(.secondary)
@@ -57,15 +67,17 @@ struct CalendarPageView: View {
                                 .background(
                                     Circle()
                                         .foregroundStyle(
-                                            // Changes the color of the day we are currently on
-                                            Date.now.startOfDay == day.startOfDay
+                                            day.formatted(.dateTime.day()) == selectedDay
+                                            ? .green.opacity(0.3)
+                                            // Changes the color of the day we are currently on based on the system date
+                                            : Date.now.startOfDay == day.startOfDay
                                                 ? .red.opacity(0.3)
                                                 // Regular day for the whole calendar
-                                                : color.opacity(0.3)
+                                            : maincolor.opacity(0.3)
                                         )
                                 )
                         }
-                        .buttonStyle(PlainButtonStyle()) 
+                        .buttonStyle(PlainButtonStyle())
                         // Use plain button style to remove the default button style
                     }
                 }// end of the foreach loop
