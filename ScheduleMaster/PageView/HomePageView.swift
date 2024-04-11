@@ -39,7 +39,7 @@ struct HomePageView: View {
                         Divider()
                         ForEach(tasks){ task in
                             if(task.dateStart.compare(Date()).rawValue<0 && task.dateEnd.compare(Date()).rawValue>0){
-                                TaskBanner(task: task)
+                                TaskBannerHomePage(task: task)
                             }
                         }
                     }
