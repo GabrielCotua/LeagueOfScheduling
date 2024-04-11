@@ -100,7 +100,12 @@ struct AddTaskView: View {
                 }
                 
                 Section("Date and Time"){
-                    DatePicker("Enter the date: ", selection: $task.dateStart)
+                    HStack{
+                        Spacer()
+                        DatePicker("Date: ", selection: $task.dateStart)
+                            
+                        Spacer()
+                    }
                 }
                
                 
