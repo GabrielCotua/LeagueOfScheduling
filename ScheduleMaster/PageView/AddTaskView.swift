@@ -88,17 +88,7 @@ struct AddTaskView: View {
                     
                     Text("\(task.timeHours) Hours \(task.timeMinutes) Minutes")
                 }
-                
-                Section("Difficulty Rating"){
-                    HStack{
-                        Text("\(task.difficultyRating, specifier: "%.0f")")
-                            .padding(.horizontal)
-                        Slider(value: $task.difficultyRating, in: 1...5, step: 1){
-                        }
-                    
-                    }
-                }
-                
+                 
                 Section("Date and Time"){
                     HStack{
                         Spacer()
@@ -108,6 +98,15 @@ struct AddTaskView: View {
                     }
                 }
                
+                Section("Difficulty Rating"){
+                    HStack{
+                        Text("\(task.difficultyRating, specifier: "%.0f")")
+                            .padding(.horizontal)
+                        Slider(value: $task.difficultyRating, in: 1...5, step: 1){
+                        }
+                    
+                    }
+                }
                 
                 Button {
                     task.endUpDate()
