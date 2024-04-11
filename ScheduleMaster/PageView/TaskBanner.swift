@@ -18,7 +18,14 @@ struct TaskBanner: View {
                             .font(.title3)
                             .fontWeight(.semibold)
                         Spacer()
+                        
+                    }
+                    Divider()
+
+                    HStack{
                         Text("\(task.timeHours) Hours \(task.timeMinutes) Minutes")
+                            Spacer()
+                        Text("\(task.dateStart)")
                     }
                     Divider()
                     HStack{
