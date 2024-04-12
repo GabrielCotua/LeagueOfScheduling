@@ -11,24 +11,25 @@ struct TaskViewsIntoCalendarView: View {
     @Binding var tasks: [Task]
     @Binding var selectedDay: String
     var body: some View {
-        LazyVStack {
+        ScrollView{
             ForEach(tasks) { task in
+                if (task.dateStart.formatted(.dateTime.day()) == selectedDay) {
                 VStack {
                     Section{
                         VStack(alignment: .leading) {
                             HStack{
-                                if (task.dateStart.formatted(.dateTime.day()) == selectedDay) {
                                     Text(task.name)
                                         .font(.title3)
                                         .fontWeight(.semibold)
                                     Spacer()
                                     Text("\(task.timeHours) Hours \(task.timeMinutes) Minutes")
-                                }
-                                Divider()
-                                HStack{
-                                    Text(task.description)
-                                    Spacer()
-                                    Text("Rating: \(task.difficultyRating, specifier: "%.0f")")
+                                    
+                                    Divider()
+                                    HStack{
+                                        Text(task.description)
+                                        Spacer()
+                                        Text("Rating: \(task.difficultyRating, specifier: "%.0f")")
+                                    }
                                 }
                             }
                         }
