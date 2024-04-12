@@ -25,7 +25,7 @@ struct TaskBanner: View {
                     HStack{
                         Text("\(task.timeHours) Hours \(task.timeMinutes) Minutes")
                             Spacer()
-                        Text("\(task.dateStart)")
+                        Text(DateFormatter.localizedString(from: task.dateStart, dateStyle: .medium, timeStyle: .medium))
                     }
                     Divider()
                     HStack{
