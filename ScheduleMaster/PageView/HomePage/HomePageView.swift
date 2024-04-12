@@ -9,6 +9,7 @@ import SwiftUI
 
 var totalPoints = 0
 var dailyPoints = 0
+
 struct HomePageView: View {
     
     @Binding var tasks: [Task]
@@ -37,10 +38,13 @@ struct HomePageView: View {
                             .font(.title3)
                             .fontWeight(.semibold)
                         Divider()
+                        
+                        if(tasks.isEmpty){
+                            TaskBannerHomePage(task: nil, taskType: "Current")
+                        }
+                        
                         ForEach(tasks){ task in
-                            if(task.dateStart.compare(Date()).rawValue<0 && task.dateEnd.compare(Date()).rawValue>0){
-                                TaskBannerHomePage(task: task)
-                            }
+                            TaskBannerHomePage(task: findCurrentTask(tasks: tasks), taskType: "Current")
                         }
                     }
                     .padding()
@@ -50,11 +54,13 @@ struct HomePageView: View {
                     
                     VStack(alignment: .leading)
                     {
-                        Text("Upcoming tasks: ")
+                        Text("Upcoming task: ")
                             .font(.title3)
                             .fontWeight(.semibold)
                         Divider()
-                        Text("Homework")
+                        
+                        TaskBannerHomePage(task: findClosestTask(tasks: tasks), taskType: "Upcoming")
+                        
                     }
                     .padding()
                     .background(.tint)
