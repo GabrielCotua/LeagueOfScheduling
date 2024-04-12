@@ -9,24 +9,28 @@ import SwiftUI
 
 struct TaskViewsIntoCalendarView: View {
     @Binding var tasks: [Task]
+    @Binding var selectedDay: String
     var body: some View {
-        LazyVStack {
+        ScrollView{
             ForEach(tasks) { task in
+                if (task.dateStart.formatted(.dateTime.day()) == selectedDay) {
                 VStack {
                     Section{
                         VStack(alignment: .leading) {
                             HStack{
-                                Text(task.name)
-                                    .font(.title3)
-                                    .fontWeight(.semibold)
-                                Spacer()
-                                Text("\(task.timeHours) Hours \(task.timeMinutes) Minutes")
-                            }
-                            Divider()
-                            HStack{
-                                Text(task.description)
-                                Spacer()
-                                Text("Rating: \(task.difficultyRating, specifier: "%.0f")")
+                                    Text(task.name)
+                                        .font(.title3)
+                                        .fontWeight(.semibold)
+                                    Spacer()
+                                    Text("\(task.timeHours) Hours \(task.timeMinutes) Minutes")
+                                    
+                                    Divider()
+                                    HStack{
+                                        Text(task.description)
+                                        Spacer()
+                                        Text("Rating: \(task.difficultyRating, specifier: "%.0f")")
+                                    }
+                                }
                             }
                         }
                         .padding()
@@ -43,5 +47,6 @@ struct TaskViewsIntoCalendarView: View {
 
 #Preview {
     @State var task: [Task] = []
-    return TaskViewsIntoCalendarView(tasks: $task)
+    @State var selectedDay: String = ""
+    return TaskViewsIntoCalendarView(tasks: $task, selectedDay: $selectedDay)
 }

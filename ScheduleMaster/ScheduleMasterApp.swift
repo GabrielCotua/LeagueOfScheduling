@@ -10,6 +10,7 @@ import SwiftUI
 @main
 struct ScheduleMasterApp: App {
     @State public var tasksList = []
+    
     var body: some Scene {
         WindowGroup {
             MainView()

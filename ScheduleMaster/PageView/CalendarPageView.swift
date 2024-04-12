@@ -9,10 +9,10 @@ import SwiftUI
 
 struct CalendarPageView: View {
     @Binding var tasks: [Task]
+    @Binding var selectedDay: String
     @State private var maincolor: Color = .blue
     @State private var SecondColor: Color = .green
     @State private var date = Date.now
-    @State private var selectedDay = ""
     let daysOfWeek = Date.capitalizedFirstLettersOfWeekdays
     let columns = Array(repeating: GridItem(.flexible()), count: 7)
     let myFormat = Date.FormatStyle()
@@ -54,7 +54,6 @@ struct CalendarPageView: View {
                             //print("Tapped on \(Date().formatted(myFormat))")
                             //print("\(Date().formatted(.dateTime.day()))")
                             
-                            
                             selectedDay = day.formatted(.dateTime.day()) //stores the date that you tapped on
                             print(day.formatted(.dateTime.day()))
                         }) {
@@ -80,12 +79,12 @@ struct CalendarPageView: View {
                         .buttonStyle(PlainButtonStyle())
                         // Use plain button style to remove the default button style
                     }
-                }// end of the foreach loop
+                } // end of the foreach loop
             } //end bracket of the LazyGrid layout
 
             
             TabView {
-                TaskViewsIntoCalendarView(tasks: $tasks)
+                TaskViewsIntoCalendarView(tasks: $tasks, selectedDay: $selectedDay)
             }
             Spacer()
         }
@@ -102,5 +101,6 @@ struct CalendarPageView: View {
 
 #Preview {
     @State var task: [Task] = []
-    return CalendarPageView(tasks: $task)
+    @State var selectedDay = String()
+    return CalendarPageView(tasks: $task, selectedDay: $selectedDay)
 }

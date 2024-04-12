@@ -12,31 +12,31 @@ struct TasksPageView: View {
     
     var body: some View {
         NavigationStack{
-            Section{
-                VStack {
-                    ForEach(tasks) { task in
-                        TaskBanner(task: task)
-                    }
-                }
-            }
-            
-           Section{
-                VStack(alignment: .trailing){
-                    Spacer()
-                    HStack{
-                        Spacer()
-                        NavigationLink(destination: AddTaskView(tasks: $tasks)){
-                            Image(systemName: "plus")
-                                .font(.system(size: 30))
-                                .padding()
-                                .background(.cyan)
-                                .cornerRadius(20)
+            ScrollView {
+                Section{
+                    VStack {
+                        ForEach(tasks) { task in
+                            TaskBanner(task: task)
                         }
-                        .padding()
+                    }
+                }.frame(width: UIScreen.main.bounds.size.width)
+            }.overlay(alignment: .bottomTrailing, content: {
+                Section{
+                    VStack(alignment: .trailing){
+                        HStack{
+                            NavigationLink(destination: AddTaskView(tasks: $tasks)){
+                                Image(systemName: "plus")
+                                    .font(.system(size: 30))
+                                    .padding()
+                                    .background(.cyan)
+                                    .cornerRadius(20)
+                            }
+                            .padding()
+                        }
                     }
                 }
-            }
-            .navigationTitle("Tasks")
+                .navigationTitle("Tasks")
+            })
         }
     }
 }

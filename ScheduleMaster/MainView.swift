@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     @State var tasks: [Task] = []
+    @State var selectedDay: String = ""
     
     var body: some View {
         TabView{
@@ -16,7 +17,7 @@ struct MainView: View {
                 .tabItem {
                     Label("Home", systemImage: "house.fill")
                 }
-            CalendarPageView(tasks: $tasks)
+            CalendarPageView(tasks: $tasks, selectedDay: $selectedDay)
                 .tabItem {
                     Label("Calendar", systemImage: "calendar")
                 }
