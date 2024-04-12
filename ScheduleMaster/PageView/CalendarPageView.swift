@@ -79,7 +79,7 @@ struct CalendarPageView: View {
                         .buttonStyle(PlainButtonStyle())
                         // Use plain button style to remove the default button style
                     }
-                }// end of the foreach loop
+                } // end of the foreach loop
             } //end bracket of the LazyGrid layout
 
             
