@@ -38,14 +38,7 @@ struct HomePageView: View {
                             .font(.title3)
                             .fontWeight(.semibold)
                         Divider()
-                        
-                        if(tasks.isEmpty){
-                            TaskBannerHomePage(task: nil, taskType: "Current")
-                        }
-                        
-                        ForEach(tasks){ task in
-                            TaskBannerHomePage(task: findCurrentTask(tasks: tasks), taskType: "Current")
-                        }
+                        TaskBannerHomePage(task: findCurrentTask(tasks: tasks), taskType: "Current")
                     }
                     .padding()
                     .background(.tint)
