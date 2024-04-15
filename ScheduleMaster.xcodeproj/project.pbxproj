@@ -75,6 +75,7 @@
 			children = (
 				B49603402BB5C59E00918BE8 /* TaskViewsIntoCalendarView.swift */,
 				B467820D2BA4A19A0004B930 /* CalendarPageView.swift */,
+				B46782132BA4D4D80004B930 /* CalendarFiles */,
 			);
 			path = CalendarPage;
 			sourceTree = "<group>";
@@ -102,7 +103,6 @@
 				8210B4DA2BA4A1EF00E3B2EE /* MainView.swift */,
 				B467820A2BA49FFC0004B930 /* PageView */,
 				82EB3FC62B9F63770058F23D /* Assets.xcassets */,
-				B46782132BA4D4D80004B930 /* CalendarFiles */,
 				82EB3FC82B9F63770058F23D /* Preview Content */,
 			);
 			path = ScheduleMaster;
