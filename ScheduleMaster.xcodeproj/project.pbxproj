@@ -60,6 +60,25 @@
 			path = HomePage;
 			sourceTree = "<group>";
 		};
+		823A3B782BCD7F4A00CB0A38 /* TaskPage */ = {
+			isa = PBXGroup;
+			children = (
+				B467820B2BA4A0170004B930 /* TasksPageView.swift */,
+				829E95042BB1D35400D6D676 /* AddTaskView.swift */,
+				82BCB34F2BC59C4900F5CE22 /* TaskBanner.swift */,
+			);
+			path = TaskPage;
+			sourceTree = "<group>";
+		};
+		823A3B792BCD806D00CB0A38 /* CalendarPage */ = {
+			isa = PBXGroup;
+			children = (
+				B49603402BB5C59E00918BE8 /* TaskViewsIntoCalendarView.swift */,
+				B467820D2BA4A19A0004B930 /* CalendarPageView.swift */,
+			);
+			path = CalendarPage;
+			sourceTree = "<group>";
+		};
 		82EB3FB62B9F63740058F23D = {
 			isa = PBXGroup;
 			children = (
@@ -101,11 +120,8 @@
 			isa = PBXGroup;
 			children = (
 				823A3B772BC9911B00CB0A38 /* HomePage */,
-				B467820D2BA4A19A0004B930 /* CalendarPageView.swift */,
-				B467820B2BA4A0170004B930 /* TasksPageView.swift */,
-				829E95042BB1D35400D6D676 /* AddTaskView.swift */,
-				82BCB34F2BC59C4900F5CE22 /* TaskBanner.swift */,
-				B49603402BB5C59E00918BE8 /* TaskViewsIntoCalendarView.swift */,
+				823A3B792BCD806D00CB0A38 /* CalendarPage */,
+				823A3B782BCD7F4A00CB0A38 /* TaskPage */,
 			);
 			path = PageView;
 			sourceTree = "<group>";
