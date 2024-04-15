@@ -78,3 +78,10 @@ extension Date {
         Calendar.current.startOfDay(for: self)
     }
 }
+
+func organizeTasks(tasks: [Task] –> tasks){
+    
+    tasks.sort((firstDate.Hour()))
+    return tasks
+}
+

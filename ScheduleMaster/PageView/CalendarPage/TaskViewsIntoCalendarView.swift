@@ -14,6 +14,7 @@ struct TaskViewsIntoCalendarView: View {
         ScrollView{
             ForEach(tasks) { task in
                 if (task.dateStart.formatted(.dateTime.day()) == selectedDay) {
+    
                 VStack {
                     Section{
                         VStack(alignment: .leading) {
