@@ -55,7 +55,7 @@ struct CalendarPageView: View {
                             //print("\(Date().formatted(.dateTime.day()))")
                             
                             selectedDay = day.formatted(.dateTime.day()) //stores the date that you tapped on
-                            print(day.formatted(.dateTime.day()))
+                           // print(day.formatted(.dateTime.day())) //used to know where I am clicking on
                         }) {
                             // Text that becomes interactive
                             
