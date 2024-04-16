@@ -111,6 +111,7 @@ struct AddTaskView: View {
                 Button {
                     task.endUpDate()
                     tasks.append(task)
+                    tasks = organizeTasks(tasks: tasks)
                     dismiss()
                 } label: {
                     Text("Submit")
