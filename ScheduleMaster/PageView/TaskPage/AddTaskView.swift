@@ -60,6 +60,15 @@ struct AddTaskView: View {
                 }
                 .pickerStyle(.navigationLink)
                 
+                Section("Date and Time"){
+                    HStack{
+                        Spacer()
+                        DatePicker("Date: ", selection: $task.dateStart)
+                            
+                        Spacer()
+                    }
+                }
+                
                 Section("estimated time"){
                     
                     HStack{
@@ -89,14 +98,6 @@ struct AddTaskView: View {
                     Text("\(task.timeHours) Hours \(task.timeMinutes) Minutes")
                 }
                  
-                Section("Date and Time"){
-                    HStack{
-                        Spacer()
-                        DatePicker("Date: ", selection: $task.dateStart)
-                            
-                        Spacer()
-                    }
-                }
                
                 Section("Difficulty Rating"){
                     HStack{

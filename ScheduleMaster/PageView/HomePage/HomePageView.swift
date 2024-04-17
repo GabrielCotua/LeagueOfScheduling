@@ -39,11 +39,13 @@ struct HomePageView: View {
                             .fontWeight(.semibold)
                         Divider()
                         TaskBannerHomePage(task: findCurrentTask(tasks: tasks), taskType: "Current")
+                        
                     }
                     .padding()
                     .background(.tint)
                     .cornerRadius(20)
                     .padding()
+                    
                     
                     VStack(alignment: .leading)
                     {
