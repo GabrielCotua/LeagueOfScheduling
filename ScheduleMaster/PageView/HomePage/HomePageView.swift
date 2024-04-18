@@ -18,6 +18,12 @@ struct HomePageView: View {
         NavigationStack{
             Section{
                 VStack{
+                    HStack{
+                        Spacer()
+                        Label("", systemImage: "person.fill")
+                            .padding(.horizontal)
+                            .font(.system(size: 40))
+                    }
                     HStack
                     {
                         Text("Total Points: \(totalPoints)")
