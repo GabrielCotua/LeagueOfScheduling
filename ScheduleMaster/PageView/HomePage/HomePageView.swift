@@ -13,7 +13,7 @@ var dailyPoints = 0
 struct HomePageView: View {
     
     @Binding var tasks: [Task]
-    
+    @Binding var oldTasks: [Task]
     var body: some View {
         NavigationStack{
             Section{
@@ -72,5 +72,6 @@ struct HomePageView: View {
 
 #Preview {
     @State var tasks: [Task] = []
-    return HomePageView(tasks: $tasks)
+    @State var oldTasks: [Task] = []
+    return HomePageView(tasks: $tasks, oldTasks: $oldTasks)
 }

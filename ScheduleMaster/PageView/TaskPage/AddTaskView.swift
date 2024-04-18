@@ -17,6 +17,7 @@ struct Task: Identifiable, Hashable{
     var difficultyRating: Double
     var dateStart: Date
     var dateEnd: Date
+    var isCompleted: Bool
     
     init(name: String, description: String, timeMinutes: Int, timeHours: Int, difficultyRating: Double, dateStart: Date, dateEnd: Date) {
         self.name = name
@@ -26,6 +27,7 @@ struct Task: Identifiable, Hashable{
         self.difficultyRating = difficultyRating
         self.dateStart = dateStart
         self.dateEnd = dateStart
+        self.isCompleted = false
     }
     mutating func endUpDate(){
         self.dateEnd = self.dateStart.addingTimeInterval(60.0*Double(timeMinutes) + 3600.0*Double(timeHours))
@@ -39,6 +41,8 @@ struct AddTaskView: View {
     @State private var showingNameAlert = false
     
     @Binding var tasks: [Task]
+    
+    @Binding var oldTasks: [Task]
     
     @Environment(\.dismiss) var dismiss
 
@@ -139,5 +143,6 @@ struct AddTaskView: View {
 
 #Preview {
     @State var tasks: [Task] = []
-    return AddTaskView(tasks: $tasks)
+    @State var oldTasks: [Task] = []
+    return AddTaskView(tasks: $tasks, oldTasks: $oldTasks)
 }

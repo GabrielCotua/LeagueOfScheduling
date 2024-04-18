@@ -7,16 +7,19 @@
 
 import SwiftUI
 
+
 struct TasksPageView: View {
     @Binding var tasks: [Task]
-    
+    @Binding var oldTasks: [Task]
     var body: some View {
         NavigationStack{
             ScrollView {
                 Section{
                     VStack {
                         ForEach(tasks) { task in
-                            TaskBanner(task: task)
+                            if(task.dateEnd.compare(Date()).rawValue > 0){
+                                TaskBanner(task: task)
+                            }
                         }
                     }
                 }.frame(width: UIScreen.main.bounds.size.width)
@@ -24,7 +27,7 @@ struct TasksPageView: View {
                 Section{
                     VStack(alignment: .trailing){
                         HStack{
-                            NavigationLink(destination: AddTaskView(tasks: $tasks)){
+                            NavigationLink(destination: AddTaskView(tasks: $tasks, oldTasks: $oldTasks)){
                                 Image(systemName: "plus")
                                     .font(.system(size: 30))
                                     .padding()
@@ -43,5 +46,6 @@ struct TasksPageView: View {
 
 #Preview {
     @State var tasks: [Task] = []
-    return TasksPageView(tasks: $tasks)
+    @State var oldTasks: [Task] = []
+    return TasksPageView(tasks: $tasks, oldTasks: $oldTasks)
 }
