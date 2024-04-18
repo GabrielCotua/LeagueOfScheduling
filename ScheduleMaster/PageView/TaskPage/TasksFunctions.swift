@@ -24,3 +24,9 @@ func organizeTasks(tasks: [Task]) -> [Task]{
     }
     return newTasks
 }
+
+extension Date {
+    func adding(minutes: Int) -> Date {
+        return Calendar.current.date(byAdding: .minute, value: minutes, to: self)!
+    }
+}

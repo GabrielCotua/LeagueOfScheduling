@@ -36,9 +36,12 @@ struct Task: Identifiable, Hashable{
 struct AddTaskView: View {
     @State private var task = Task(name: "", description: "", timeMinutes: 0, timeHours: 0, difficultyRating: 1.0, dateStart: Date(), dateEnd: Date())
     
+    @State private var showingNameAlert = false
+    
     @Binding var tasks: [Task]
     
     @Environment(\.dismiss) var dismiss
+
     
     var body: some View {
         NavigationStack{
@@ -110,12 +113,21 @@ struct AddTaskView: View {
                 }
                 
                 Button {
-                    task.endUpDate()
-                    tasks.append(task)
-                    tasks = organizeTasks(tasks: tasks)
-                    dismiss()
+                    if(task.name == ""){
+                        showingNameAlert = true
+                    }
+                    else{
+                        showingNameAlert = false
+                        task.endUpDate()
+                        tasks.append(task)
+                        tasks = organizeTasks(tasks: tasks)
+                        dismiss()
+                    }
                 } label: {
                     Text("Submit")
+                }
+                .alert("The task nasme is invalid.", isPresented: $showingNameAlert) {
+                    Button("OK", role: .cancel) { }
                 }
                 
                 
