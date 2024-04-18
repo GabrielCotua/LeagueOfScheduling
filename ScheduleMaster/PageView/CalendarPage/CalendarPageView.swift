@@ -22,79 +22,82 @@ struct CalendarPageView: View {
         .locale(Locale(identifier: "en_US"))
     @State private var days: [Date] = []
     var body: some View {
-        
-        VStack {
-        //  LabeledContent("Calendar Color") {
-        //    ColorPicker("", selection: $color, supportsOpacity: false)
-        //    }
-            
-            LabeledContent("Date/Time") {
-                DatePicker("", selection: $date)
-            }
+        NavigationStack{
+            VStack {
+                //  LabeledContent("Calendar Color") {
+                //    ColorPicker("", selection: $color, supportsOpacity: false)
+                //    }
+                
+                LabeledContent("Date/Time") {
+                    DatePicker("", selection: $date)
+                }
                 .padding()
-            
-            HStack{
-                ForEach(daysOfWeek.indices, id: \.self) { index in
-                    Text(daysOfWeek[index])
-                        .fontWeight(.black)
-                        .foregroundStyle(maincolor)
-                        .frame(maxWidth: .infinity)
+                Section {
+                    HStack{
+                        ForEach(daysOfWeek.indices, id: \.self) { index in
+                            Text(daysOfWeek[index])
+                                .fontWeight(.black)
+                                .foregroundStyle(maincolor)
+                                .frame(maxWidth: .infinity)
+                        }
+                    }
+                    LazyVGrid(columns: columns) {
+                        ForEach(days, id: \.self) { day in
+                            if day.monthInt != date.monthInt {
+                                Text("")
+                            } else {
+                                Button(action: {
+                                    // Handle the action when the day is tapped
+                                    
+                                    
+                                    // Date().formatted(myFormat) is how I know the day that was tapped on, it gives the month day, year
+                                    //print("Tapped on \(Date().formatted(myFormat))")
+                                    //print("\(Date().formatted(.dateTime.day()))")
+                                    
+                                    selectedDay = day.formatted(.dateTime.day()) //stores the date that you tapped on
+                                    // print(day.formatted(.dateTime.day())) //used to know where I am clicking on
+                                }) {
+                                    // Text that becomes interactive
+                                    
+                                    Text(day.formatted(.dateTime.day()))
+                                        .fontWeight(.bold)
+                                        .foregroundStyle(.secondary)
+                                        .frame(maxWidth: .infinity, minHeight: 40)
+                                        .background(
+                                            Circle()
+                                                .foregroundStyle(
+                                                    day.formatted(.dateTime.day()) == selectedDay
+                                                    ? .green.opacity(0.3)
+                                                    // Changes the color of the day we are currently on based on the system date
+                                                    : Date.now.startOfDay == day.startOfDay
+                                                    ? .red.opacity(0.3)
+                                                    // Regular day for the whole calendar
+                                                    : maincolor.opacity(0.3)
+                                                )
+                                        )
+                                }
+                                .buttonStyle(PlainButtonStyle())
+                                // Use plain button style to remove the default button style
+                            }
+                        } // end of the foreach loop
+                    } //end bracket of the LazyGrid layout
+                    
+                    
+                    TabView {
+                        TaskViewsIntoCalendarView(tasks: $tasks, selectedDay: $selectedDay)
+                    }
+                    Spacer()
+                }
+                
+                .padding()
+                .onAppear {
+                    days = date.calendarDisplayDays
+                }
+                .onChange(of: date) {
+                    days = date.calendarDisplayDays
                 }
             }
-            LazyVGrid(columns: columns) {
-                ForEach(days, id: \.self) { day in
-                    if day.monthInt != date.monthInt {
-                        Text("")
-                    } else {
-                        Button(action: {
-                            // Handle the action when the day is tapped
-                            
-                            
-                            // Date().formatted(myFormat) is how I know the day that was tapped on, it gives the month day, year
-                            //print("Tapped on \(Date().formatted(myFormat))")
-                            //print("\(Date().formatted(.dateTime.day()))")
-                            
-                            selectedDay = day.formatted(.dateTime.day()) //stores the date that you tapped on
-                           // print(day.formatted(.dateTime.day())) //used to know where I am clicking on
-                        }) {
-                            // Text that becomes interactive
-                            
-                            Text(day.formatted(.dateTime.day()))
-                                .fontWeight(.bold)
-                                .foregroundStyle(.secondary)
-                                .frame(maxWidth: .infinity, minHeight: 40)
-                                .background(
-                                    Circle()
-                                        .foregroundStyle(
-                                            day.formatted(.dateTime.day()) == selectedDay
-                                            ? .green.opacity(0.3)
-                                            // Changes the color of the day we are currently on based on the system date
-                                            : Date.now.startOfDay == day.startOfDay
-                                                ? .red.opacity(0.3)
-                                                // Regular day for the whole calendar
-                                            : maincolor.opacity(0.3)
-                                        )
-                                )
-                        }
-                        .buttonStyle(PlainButtonStyle())
-                        // Use plain button style to remove the default button style
-                    }
-                } // end of the foreach loop
-            } //end bracket of the LazyGrid layout
-
-            
-            TabView {
-                TaskViewsIntoCalendarView(tasks: $tasks, selectedDay: $selectedDay)
-            }
-            Spacer()
-        }
-        
-        .padding()
-        .onAppear {
-            days = date.calendarDisplayDays
-        }
-        .onChange(of: date) {
-            days = date.calendarDisplayDays
+            .navigationTitle("Calendar")
         }
     }
 }
