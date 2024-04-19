@@ -20,7 +20,10 @@ struct HomePageView: View {
                 VStack{
                     HStack{
                         Spacer()
-                        Label("", systemImage: "person.fill")
+                        NavigationLink(destination: ProfileOptions()){
+                            Image(systemName: "person.circle.fill")
+                        }
+                  
                             .padding(.horizontal)
                             .font(.system(size: 40))
                     }
