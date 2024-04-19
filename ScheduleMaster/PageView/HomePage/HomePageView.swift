@@ -19,7 +19,23 @@ struct HomePageView: View {
             Section{
                 VStack{
                     HStack{
-                        Spacer()
+                        HStack
+                        {
+                            
+                            Text("Total Points: \(totalPoints)")
+                            Spacer()
+                            Text("Daily Points: \(dailyPoints) ")
+                            
+                        }
+                        .font(.title3)
+                        .fontWeight(.semibold)
+                        .padding(.vertical)
+                        .overlay(RoundedRectangle(cornerRadius: 10)
+                            .stroke(.gray, lineWidth: 5))
+                       
+                        .cornerRadius(10)
+                        .padding(.leading)
+                        
                         NavigationLink(destination: ProfileOptions()){
                             Image(systemName: "person.circle.fill")
                         }
@@ -27,19 +43,7 @@ struct HomePageView: View {
                             .padding(.horizontal)
                             .font(.system(size: 40))
                     }
-                    HStack
-                    {
-                        Text("Total Points: \(totalPoints)")
-                        Spacer()
-                        Text("Daily Points: \(dailyPoints)")
-                    }
-                    .font(.title3)
-                    .fontWeight(.semibold)
-                    .padding()
-                    .overlay(RoundedRectangle(cornerRadius: 10)
-                        .stroke(.gray, lineWidth: 5))
-                    .cornerRadius(10)
-                    .padding()
+                   
                     
                     
                     VStack(alignment: .leading){
