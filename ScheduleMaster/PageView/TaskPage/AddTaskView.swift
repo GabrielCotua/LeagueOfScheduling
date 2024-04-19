@@ -42,6 +42,8 @@ struct AddTaskView: View {
     
     @State private var showingPastDateAlert = false
     
+    @State private var showingTaskDurationAlert = false
+    
     @Binding var tasks: [Task]
     
     @Binding var oldTasks: [Task]
@@ -125,9 +127,13 @@ struct AddTaskView: View {
                     else if (task.dateStart.adding(minutes: 5).compare(Date()).rawValue < 0){
                         showingPastDateAlert = true
                     }
+                    else if (task.timeHours == 0 && task.timeMinutes < 5){
+                        showingTaskDurationAlert = true
+                    }
                     else{
                         showingNameAlert = false
                         showingPastDateAlert = false
+                        showingTaskDurationAlert = false
                         task.endUpDate()
                         tasks.append(task)
                         tasks = organizeTasks(tasks: tasks)
@@ -139,7 +145,10 @@ struct AddTaskView: View {
                 .alert("The task nasme is invalid.", isPresented: $showingNameAlert) {
                     Button("OK", role: .cancel) { }
                 }
-                .alert("The date you selected is invalid", isPresented: $showingPastDateAlert) {
+                .alert("The date you selected is in too old.", isPresented: $showingPastDateAlert) {
+                    Button("OK", role: .cancel) { }
+                }
+                .alert("The task duration is too short.", isPresented: $showingTaskDurationAlert) {
                     Button("OK", role: .cancel) { }
                 }
                 
