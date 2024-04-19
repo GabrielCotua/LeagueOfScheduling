@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 func organizeTasks(tasks: [Task]) -> [Task]{
     var newTasks: [Task] = tasks
@@ -23,6 +24,12 @@ func organizeTasks(tasks: [Task]) -> [Task]{
         }
     }
     return newTasks
+}
+func currentTasks(task: Task, tasks: Binding<[Task]>, oldTasks: Binding<[Task]>) -> Task?{
+    if(task.dateEnd.compare(Date()).rawValue < 0){
+        return nil
+    }
+    return task
 }
 extension Date {
     func adding(minutes: Int) -> Date {

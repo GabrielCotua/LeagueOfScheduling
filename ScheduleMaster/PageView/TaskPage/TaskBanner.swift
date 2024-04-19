@@ -8,38 +8,40 @@
 import SwiftUI
 
 struct TaskBanner: View {
-    let task: Task
+    let task: Task?
     var body: some View {
-        VStack {
-            Section{
-                VStack(alignment: .leading) {
-                    HStack{
-                        Text(task.name)
-                            .font(.title3)
-                            .fontWeight(.semibold)
-                        Spacer()
+        if(task != nil){
+            VStack {
+                Section{
+                    VStack(alignment: .leading) {
+                        HStack{
+                            Text(task!.name)
+                                .font(.title3)
+                                .fontWeight(.semibold)
+                            Spacer()
+                            
+                        }
+                        Divider()
+                        
+                        HStack{
+                            Text("\(task!.timeHours) Hours \(task!.timeMinutes) Minutes")
+                            Spacer()
+                            Text(DateFormatter.localizedString(from: task!.dateStart, dateStyle: .medium, timeStyle: .medium))
+                        }
+                        Divider()
+                        HStack{
+                            Text(task!.description)
+                            Spacer()
+                            Text("Rating: \(task!.difficultyRating, specifier: "%.0f")")
+                        }
                         
                     }
-                    Divider()
-
-                    HStack{
-                        Text("\(task.timeHours) Hours \(task.timeMinutes) Minutes")
-                            Spacer()
-                        Text(DateFormatter.localizedString(from: task.dateStart, dateStyle: .medium, timeStyle: .medium))
-                    }
-                    Divider()
-                    HStack{
-                        Text(task.description)
-                          Spacer()
-                        Text("Rating: \(task.difficultyRating, specifier: "%.0f")")
-                    }
                     
+                    .padding()
+                    .background(.tint)
+                    .cornerRadius(20)
+                    .padding()
                 }
-                
-                .padding()
-                .background(.tint)
-                .cornerRadius(20)
-                .padding()
             }
         }
     }

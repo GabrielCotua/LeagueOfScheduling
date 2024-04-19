@@ -15,7 +15,7 @@ struct ProfileOptions: View {
                 Section(){
                     NavigationLink{
                         MyProfileView()
-                        }
+                    }
                 label: {
                     Label("My Profile", systemImage: "person")
                 }
