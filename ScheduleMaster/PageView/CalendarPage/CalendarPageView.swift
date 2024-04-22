@@ -57,13 +57,7 @@ struct CalendarPageView: View {
                                 Button(action: {
                                     // Handle the action when the day is tapped
                                     
-                                    
-                                    // Date().formatted(myFormat) is how I know the day that was tapped on, it gives the month day, year
-                                    //print("Tapped on \(Date().formatted(myFormat))")
-                                    //print("\(Date().formatted(.dateTime.day()))")
-                                    
                                     selectedDay = day.formatted(.dateTime.day()) //stores the date that you tapped on
-                                    // print(day.formatted(.dateTime.day())) //used to know where I am clicking on
                                 }) {
                                     // Text that becomes interactive
                                     
