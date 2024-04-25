@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ProfileOptions: View {
+    @Binding var tasks: [Task]
+    @Binding var oldTasks: [Task]
     var body: some View {
         
         NavigationStack{
@@ -20,8 +22,8 @@ struct ProfileOptions: View {
                     Label("My Profile", systemImage: "person")
                 }
                     NavigationLink {
-                        CompletedTasksView()
-                    } 
+                        CompletedTasksView(oldTasks: $oldTasks)
+                    }
                 label: {
                         Label("Completed Tasks", systemImage: "checkmark.square")
                     }
@@ -44,6 +46,8 @@ struct ProfileOptions: View {
 }
 
 #Preview {
-    return ProfileOptions()
+    @State var tasks: [Task] = []
+    @State var oldTasks: [Task] = []
+    return HomePageView(tasks: $tasks, oldTasks: $oldTasks)
     
 }

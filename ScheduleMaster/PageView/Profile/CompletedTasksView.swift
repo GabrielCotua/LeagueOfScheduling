@@ -8,15 +8,22 @@
 import SwiftUI
 
 struct CompletedTasksView: View {
+    @Binding var oldTasks: [Task]
     var body: some View {
         NavigationStack{
-            
-                Text("Hello, World!")
+            ScrollView{
+                Section{
+                    ForEach(oldTasks){ task in
+                        OldTasksBanner(task: task)
+                    }
+                }
             }
+        }
     }
 }
 
 
 #Preview {
-    return CompletedTasksView()
+    @State var oldTasks: [Task] = []
+    return CompletedTasksView(oldTasks: $oldTasks)
 }

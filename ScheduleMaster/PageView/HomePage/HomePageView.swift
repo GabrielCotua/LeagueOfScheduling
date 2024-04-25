@@ -34,7 +34,7 @@ struct HomePageView: View {
                         .cornerRadius(10)
                         .padding(.leading)
                         
-                        NavigationLink(destination: ProfileOptions()){
+                        NavigationLink(destination: ProfileOptions(tasks: $tasks, oldTasks: $oldTasks)){
                             Image(systemName: "person.circle.fill")
                         }
                   
