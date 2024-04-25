@@ -23,7 +23,7 @@ struct ProfileOptions: View {
                         CompletedTasksView()
                     } 
                 label: {
-                        Label("Completed Tasks", systemImage: "checkmark.square")
+                        Label("Old Tasks", systemImage: "checkmark.square")
                     }
                     NavigationLink {
                         SettingsPageView()
