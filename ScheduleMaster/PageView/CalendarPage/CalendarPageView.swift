@@ -94,7 +94,7 @@ struct CalendarPageView: View {
                     TabView {
                         TaskViewsIntoCalendarView(tasks: $tasks, selectedDay: $selectedDay)
                     }
-                    Spacer()
+                    
                 }
                 
                 .padding()

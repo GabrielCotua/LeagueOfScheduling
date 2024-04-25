@@ -25,7 +25,7 @@ struct ProfileOptions: View {
                         CompletedTasksView(oldTasks: $oldTasks)
                     }
                 label: {
-                        Label("Completed Tasks", systemImage: "checkmark.square")
+                        Label("Old Tasks", systemImage: "checkmark.square")
                     }
                     NavigationLink {
                         SettingsPageView()
