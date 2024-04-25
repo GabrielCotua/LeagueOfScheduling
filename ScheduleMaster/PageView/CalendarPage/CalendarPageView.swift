@@ -29,7 +29,15 @@ struct CalendarPageView: View {
                 //    }
                 
                 LabeledContent("Date/Time") {
-                    DatePicker("", selection: $date)
+                    
+                    
+                    DatePicker("", selection: $date, displayedComponents: .date)
+                    Button( action: {
+                        date = Date.now
+                    }) {
+                        Text("Today")
+                    }
+                    .buttonStyle(DefaultButtonStyle())
                 }
                 .padding()
                 Section {
@@ -49,13 +57,7 @@ struct CalendarPageView: View {
                                 Button(action: {
                                     // Handle the action when the day is tapped
                                     
-                                    
-                                    // Date().formatted(myFormat) is how I know the day that was tapped on, it gives the month day, year
-                                    //print("Tapped on \(Date().formatted(myFormat))")
-                                    //print("\(Date().formatted(.dateTime.day()))")
-                                    
                                     selectedDay = day.formatted(.dateTime.day()) //stores the date that you tapped on
-                                    // print(day.formatted(.dateTime.day())) //used to know where I am clicking on
                                 }) {
                                     // Text that becomes interactive
                                     
@@ -66,11 +68,17 @@ struct CalendarPageView: View {
                                         .background(
                                             Circle()
                                                 .foregroundStyle(
-                                                    day.formatted(.dateTime.day()) == selectedDay
-                                                    ? .green.opacity(0.3)
-                                                    // Changes the color of the day we are currently on based on the system date
-                                                    : Date.now.startOfDay == day.startOfDay
+                                                     Date.now.startOfDay == day.startOfDay
                                                     ? .red.opacity(0.3)
+                                                     
+                                                    : date.formatted(.dateTime.day()) == day.formatted(.dateTime.day())
+                                                    ? .yellow.opacity(0.3)
+                                                    
+                                                    : day.formatted(.dateTime.day()) == selectedDay || day.formatted(.dateTime.day()) == date.formatted(.dateTime.day())
+                                                        ? .green.opacity(0.3)
+                                                    
+                                                    // Changes the color of the day we are currently on based on the system date
+                                                    
                                                     // Regular day for the whole calendar
                                                     : maincolor.opacity(0.3)
                                                 )
