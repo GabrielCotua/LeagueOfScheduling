@@ -17,7 +17,9 @@ struct TasksPageView: View {
                 Section{
                     VStack {
                         ForEach(tasks) { task in
-                            TaskBanner(task: currentTasks(task: task, tasks: $tasks, oldTasks: $oldTasks))
+                            
+                            TaskBanner(task: removeTasks(task: task, tasks: $tasks, oldTasks: $oldTasks))
+                            
                         }
                     }
                 }.frame(width: UIScreen.main.bounds.size.width)

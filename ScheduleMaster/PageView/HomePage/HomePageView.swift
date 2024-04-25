@@ -30,8 +30,6 @@ struct HomePageView: View {
                         .font(.title3)
                         .fontWeight(.semibold)
                         .padding(.vertical)
-                        .overlay(RoundedRectangle(cornerRadius: 10)
-                            .stroke(.gray, lineWidth: 5))
                        
                         .cornerRadius(10)
                         .padding(.leading)
@@ -40,7 +38,8 @@ struct HomePageView: View {
                             Image(systemName: "person.circle.fill")
                         }
                   
-                            .padding(.horizontal)
+                            .padding(.trailing)
+                            .padding(.leading, 5)
                             .font(.system(size: 40))
                     }
                    

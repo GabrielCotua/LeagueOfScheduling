@@ -8,29 +8,31 @@
 import Foundation
 import SwiftUI
 
-func organizeTasks(tasks: [Task]) -> [Task]{
-    var newTasks: [Task] = tasks
+func organizeTasks(tasks: Binding<[Task]>) {    
     var temp: Task
-    if(tasks.count == 1){
-        return newTasks
+    if(tasks.wrappedValue.count == 1){
+        return
     }
-    for i in (0...(newTasks.count-2)){
-        for j in ((i+1)...(newTasks.count - 1)){
-            if(newTasks[i].dateStart.compare(newTasks[j].dateStart).rawValue > 0){
-                temp = newTasks[i]
-                newTasks[i] = newTasks[j]
-                newTasks[j] = temp
+    for i in (0...(tasks.wrappedValue.count-2)){
+        for j in ((i+1)...(tasks.wrappedValue.count - 1)){
+            if(tasks.wrappedValue[i].dateStart.compare(tasks.wrappedValue[j].dateStart).rawValue > 0){
+                temp = tasks.wrappedValue[i]
+                tasks.wrappedValue[i] = tasks.wrappedValue[j]
+                tasks.wrappedValue[j] = temp
             }
         }
     }
-    return newTasks
 }
-func currentTasks(task: Task, tasks: Binding<[Task]>, oldTasks: Binding<[Task]>) -> Task?{
+
+func removeTasks(task: Task, tasks: Binding<[Task]>, oldTasks: Binding<[Task]>) -> Task?{
     if(task.dateEnd.compare(Date()).rawValue < 0){
+        oldTasks.wrappedValue.append(task)
+        tasks.wrappedValue.remove(at: tasks.wrappedValue.firstIndex(of: task)!)
         return nil
     }
     return task
 }
+
 extension Date {
     func adding(minutes: Int) -> Date {
         return Calendar.current.date(byAdding: .minute, value: minutes, to: self)!

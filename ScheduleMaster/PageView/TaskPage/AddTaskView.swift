@@ -121,22 +121,22 @@ struct AddTaskView: View {
                 }
                 
                 Button {
-                    if(task.name == ""){
-                        //showingNameAlert = true
+                    /*if(task.name == ""){
+                        showingNameAlert = true
                     }
                     else if (task.dateStart.adding(minutes: 5).compare(Date()).rawValue < 0){
-                        //showingPastDateAlert = true
+                        showingPastDateAlert = true
                     }
                     else if (task.timeHours == 0 && task.timeMinutes < 5){
-                        //showingTaskDurationAlert = true
+                        showingTaskDurationAlert = true
                     }
-                    //else{
+                    else{*/
                         showingNameAlert = false
                         showingPastDateAlert = false
                         showingTaskDurationAlert = false
                         task.endUpDate()
                         tasks.append(task)
-                        tasks = organizeTasks(tasks: tasks)
+                        organizeTasks(tasks: $tasks)
                         dismiss()
                     //}
                 } label: {
