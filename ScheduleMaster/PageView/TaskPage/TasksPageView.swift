@@ -11,6 +11,12 @@ import SwiftUI
 struct TasksPageView: View {
     @Binding var tasks: [Task]
     @Binding var oldTasks: [Task]
+    
+    
+    var tempTask = Task(name: "dsafiuhasf", description: "osjdfos", timeMinutes: 0, timeHours: 0, difficultyRating: 1.0, dateStart: Date(),dateEnd: Date())
+    
+    @State private var currentTime = Date()
+
     var body: some View {
         NavigationStack{
             ScrollView {
@@ -18,8 +24,11 @@ struct TasksPageView: View {
                     VStack {
                         ForEach(tasks) { task in
                             
-                            TaskBanner(task: removeTasks(task: task, tasks: $tasks, oldTasks: $oldTasks))
+                            TaskBanner(task: task)
                             
+                        }
+                        .onAppear {
+                            startProcessingTasks(tasks: $tasks, oldTasks: $oldTasks)
                         }
                     }
                 }.frame(width: UIScreen.main.bounds.size.width)

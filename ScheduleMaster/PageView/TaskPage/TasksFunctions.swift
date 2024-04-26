@@ -33,6 +33,23 @@ func removeTasks(task: Task, tasks: Binding<[Task]>, oldTasks: Binding<[Task]>) 
     return task
 }
 
+func startProcessingTasks(tasks: Binding<[Task]>, oldTasks: Binding<[Task]>) {
+    // Start a timer to continuously process tasks
+    let timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+        processTasks(tasks: tasks, oldTasks: oldTasks)
+    }
+    RunLoop.main.add(timer, forMode: .common)
+}
+
+func processTasks(tasks: Binding<[Task]>, oldTasks: Binding<[Task]>) {
+    for index in tasks.wrappedValue.indices {
+        let task = tasks.wrappedValue[index]
+        let removedTask = removeTasks(task: task, tasks: tasks, oldTasks: oldTasks)
+
+    }
+}
+
+
 extension Date {
     func adding(minutes: Int) -> Date {
         return Calendar.current.date(byAdding: .minute, value: minutes, to: self)!
