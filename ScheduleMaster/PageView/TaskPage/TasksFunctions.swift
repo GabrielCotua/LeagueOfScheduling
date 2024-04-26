@@ -24,27 +24,28 @@ func organizeTasks(tasks: Binding<[Task]>) {
     }
 }
 
-func removeTasks(task: Task, tasks: Binding<[Task]>, oldTasks: Binding<[Task]>) -> Task?{
+func removeTasks(task: Task, tasks: Binding<[Task]>, oldTasks: Binding<[Task]>, showAlert: Binding<Bool>) -> Task?{
     if(task.dateEnd.compare(Date()).rawValue < 0){
         oldTasks.wrappedValue.append(task)
         tasks.wrappedValue.remove(at: tasks.wrappedValue.firstIndex(of: task)!)
+        showAlert.wrappedValue = true
         return nil
     }
     return task
 }
 
-func startProcessingTasks(tasks: Binding<[Task]>, oldTasks: Binding<[Task]>) {
+func startProcessingTasks(tasks: Binding<[Task]>, oldTasks: Binding<[Task]>, showAlert: Binding<Bool>) {
     // Start a timer to continuously process tasks
     let timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-        processTasks(tasks: tasks, oldTasks: oldTasks)
+        processTasks(tasks: tasks, oldTasks: oldTasks, showAlert: showAlert)
     }
     RunLoop.main.add(timer, forMode: .common)
 }
 
-func processTasks(tasks: Binding<[Task]>, oldTasks: Binding<[Task]>) {
+func processTasks(tasks: Binding<[Task]>, oldTasks: Binding<[Task]>, showAlert: Binding<Bool>) {
     for index in tasks.wrappedValue.indices {
         let task = tasks.wrappedValue[index]
-        let removedTask = removeTasks(task: task, tasks: tasks, oldTasks: oldTasks)
+        let removedTask = removeTasks(task: task, tasks: tasks, oldTasks: oldTasks, showAlert: showAlert)
 
     }
 }

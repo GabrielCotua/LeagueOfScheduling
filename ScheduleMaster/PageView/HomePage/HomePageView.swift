@@ -11,9 +11,9 @@ var totalPoints = 0
 var dailyPoints = 0
 
 struct HomePageView: View {
-    
     @Binding var tasks: [Task]
     @Binding var oldTasks: [Task]
+    @Binding var showAlert: Bool
     var body: some View {
         NavigationStack{
             Section{
@@ -53,6 +53,9 @@ struct HomePageView: View {
                         TaskBannerHomePage(task: findCurrentTask(tasks: tasks), taskType: "Current")
                         
                     }
+                    .alert(isPresented: $showAlert) {
+                        Alert(title: Text("Task Expired"), message: Text("This task has expired."), dismissButton: .default(Text("OK")))
+                    }
                     .padding()
                     .background(.tint)
                     .cornerRadius(20)
@@ -85,5 +88,6 @@ struct HomePageView: View {
 #Preview {
     @State var tasks: [Task] = []
     @State var oldTasks: [Task] = []
-    return HomePageView(tasks: $tasks, oldTasks: $oldTasks)
+    @State var showAlert = false
+    return HomePageView(tasks: $tasks, oldTasks: $oldTasks, showAlert: $showAlert)
 }

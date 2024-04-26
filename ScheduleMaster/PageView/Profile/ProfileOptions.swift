@@ -48,6 +48,7 @@ struct ProfileOptions: View {
 #Preview {
     @State var tasks: [Task] = []
     @State var oldTasks: [Task] = []
-    return HomePageView(tasks: $tasks, oldTasks: $oldTasks)
+    @State var showAlert = false
+    return HomePageView(tasks: $tasks, oldTasks: $oldTasks, showAlert: $showAlert)
     
 }

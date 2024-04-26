@@ -11,10 +11,11 @@ struct MainView: View {
     @State var tasks: [Task] = []
     @State var oldTasks: [Task] = []
     @State var selectedDay: String = ""
+    @State var showAlert = false
     
     var body: some View {
         TabView{
-            HomePageView(tasks: $tasks, oldTasks: $oldTasks)
+            HomePageView(tasks: $tasks, oldTasks: $oldTasks, showAlert: $showAlert)
                 .tabItem {
                     Label("Home", systemImage: "house.fill")
                 }
@@ -22,7 +23,7 @@ struct MainView: View {
                 .tabItem {
                     Label("Calendar", systemImage: "calendar")
                 }
-            TasksPageView(tasks: $tasks, oldTasks: $oldTasks)
+            TasksPageView(tasks: $tasks, oldTasks: $oldTasks, showAlert: $showAlert)
                 .tabItem {
                     Label("Tasks", systemImage: "list.clipboard")
             }

@@ -11,7 +11,7 @@ import SwiftUI
 struct TasksPageView: View {
     @Binding var tasks: [Task]
     @Binding var oldTasks: [Task]
-    
+    @Binding var showAlert: Bool
     
     var tempTask = Task(name: "dsafiuhasf", description: "osjdfos", timeMinutes: 0, timeHours: 0, difficultyRating: 1.0, dateStart: Date(),dateEnd: Date())
     
@@ -28,7 +28,7 @@ struct TasksPageView: View {
                             
                         }
                         .onAppear {
-                            startProcessingTasks(tasks: $tasks, oldTasks: $oldTasks)
+                            startProcessingTasks(tasks: $tasks, oldTasks: $oldTasks, showAlert: $showAlert)
                         }
                     }
                 }.frame(width: UIScreen.main.bounds.size.width)
@@ -56,5 +56,6 @@ struct TasksPageView: View {
 #Preview {
     @State var tasks: [Task] = []
     @State var oldTasks: [Task] = []
-    return TasksPageView(tasks: $tasks, oldTasks: $oldTasks)
+    @State var showAlert = false
+    return TasksPageView(tasks: $tasks, oldTasks: $oldTasks, showAlert: $showAlert)
 }
