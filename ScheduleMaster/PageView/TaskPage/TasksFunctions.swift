@@ -45,8 +45,9 @@ func startProcessingTasks(tasks: Binding<[Task]>, oldTasks: Binding<[Task]>, sho
 func processTasks(tasks: Binding<[Task]>, oldTasks: Binding<[Task]>, showAlert: Binding<Bool>) {
     for index in tasks.wrappedValue.indices {
         let task = tasks.wrappedValue[index]
-        let removedTask = removeTasks(task: task, tasks: tasks, oldTasks: oldTasks, showAlert: showAlert)
-
+         if(removeTasks(task: task, tasks: tasks, oldTasks: oldTasks, showAlert: showAlert) == nil){
+             break
+         }
     }
 }
 
