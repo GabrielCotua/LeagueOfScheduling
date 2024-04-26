@@ -22,7 +22,7 @@ struct ProfileOptions: View {
                     Label("My Profile", systemImage: "person")
                 }
                     NavigationLink {
-                        CompletedTasksView(oldTasks: $oldTasks)
+                        OldTasksView(oldTasks: $oldTasks)
                     }
                 label: {
                         Label("Old Tasks", systemImage: "checkmark.square")

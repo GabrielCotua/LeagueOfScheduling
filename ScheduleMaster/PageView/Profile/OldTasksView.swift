@@ -27,5 +27,5 @@ struct OldTasksView: View {
 
 #Preview {
     @State var oldTasks: [Task] = []
-    return CompletedTasksView(oldTasks: $oldTasks)
+    return OldTasksView(oldTasks: $oldTasks)
 }

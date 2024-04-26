@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		68632E6A2BD2C31F002009C6 /* MyProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68632E692BD2C31F002009C6 /* MyProfileView.swift */; };
 		68F9BBFF2BD17CB600611D1E /* ProfileOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F9BBFE2BD17CB600611D1E /* ProfileOptions.swift */; };
-		68F9BC022BD1970A00611D1E /* CompletedTasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F9BC012BD1970A00611D1E /* CompletedTasksView.swift */; };
 		68F9BC042BD1A77800611D1E /* SettingsPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F9BC032BD1A77800611D1E /* SettingsPageView.swift */; };
 		8210B4DB2BA4A1EF00E3B2EE /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8210B4DA2BA4A1EF00E3B2EE /* MainView.swift */; };
 		823A3B762BC9911400CB0A38 /* HomePageViewFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823A3B752BC9911400CB0A38 /* HomePageViewFunctions.swift */; };
 		823A3B7D2BCED3A300CB0A38 /* TasksFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823A3B7C2BCED3A300CB0A38 /* TasksFunctions.swift */; };
 		82749E802BDAB4BF005F05C1 /* OldTasksBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82749E7F2BDAB4BF005F05C1 /* OldTasksBanner.swift */; };
+		82749E822BDBE493005F05C1 /* OldTasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82749E812BDBE492005F05C1 /* OldTasksView.swift */; };
 		829E95052BB1D35400D6D676 /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829E95042BB1D35400D6D676 /* AddTaskView.swift */; };
 		82BCB3502BC59C4900F5CE22 /* TaskBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BCB34F2BC59C4900F5CE22 /* TaskBanner.swift */; };
 		82BCB3522BC83ACD00F5CE22 /* TaskBannerHomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BCB3512BC83ACD00F5CE22 /* TaskBannerHomePage.swift */; };
@@ -31,12 +31,12 @@
 /* Begin PBXFileReference section */
 		68632E692BD2C31F002009C6 /* MyProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileView.swift; sourceTree = "<group>"; };
 		68F9BBFE2BD17CB600611D1E /* ProfileOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileOptions.swift; sourceTree = "<group>"; };
-		68F9BC012BD1970A00611D1E /* CompletedTasksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedTasksView.swift; sourceTree = "<group>"; };
 		68F9BC032BD1A77800611D1E /* SettingsPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPageView.swift; sourceTree = "<group>"; };
 		8210B4DA2BA4A1EF00E3B2EE /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		823A3B752BC9911400CB0A38 /* HomePageViewFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewFunctions.swift; sourceTree = "<group>"; };
 		823A3B7C2BCED3A300CB0A38 /* TasksFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksFunctions.swift; sourceTree = "<group>"; };
 		82749E7F2BDAB4BF005F05C1 /* OldTasksBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldTasksBanner.swift; sourceTree = "<group>"; };
+		82749E812BDBE492005F05C1 /* OldTasksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldTasksView.swift; sourceTree = "<group>"; };
 		829E95042BB1D35400D6D676 /* AddTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
 		82BCB34F2BC59C4900F5CE22 /* TaskBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskBanner.swift; sourceTree = "<group>"; };
 		82BCB3512BC83ACD00F5CE22 /* TaskBannerHomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskBannerHomePage.swift; sourceTree = "<group>"; };
@@ -66,7 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				68F9BBFE2BD17CB600611D1E /* ProfileOptions.swift */,
-				68F9BC012BD1970A00611D1E /* CompletedTasksView.swift */,
+				82749E812BDBE492005F05C1 /* OldTasksView.swift */,
 				68F9BC032BD1A77800611D1E /* SettingsPageView.swift */,
 				68632E692BD2C31F002009C6 /* MyProfileView.swift */,
 				82749E7F2BDAB4BF005F05C1 /* OldTasksBanner.swift */,
@@ -234,7 +234,7 @@
 				68F9BBFF2BD17CB600611D1E /* ProfileOptions.swift in Sources */,
 				8210B4DB2BA4A1EF00E3B2EE /* MainView.swift in Sources */,
 				823A3B762BC9911400CB0A38 /* HomePageViewFunctions.swift in Sources */,
-				68F9BC022BD1970A00611D1E /* CompletedTasksView.swift in Sources */,
+				82749E822BDBE493005F05C1 /* OldTasksView.swift in Sources */,
 				823A3B7D2BCED3A300CB0A38 /* TasksFunctions.swift in Sources */,
 				82749E802BDAB4BF005F05C1 /* OldTasksBanner.swift in Sources */,
 				82EB3FC52B9F63740058F23D /* HomePageView.swift in Sources */,
