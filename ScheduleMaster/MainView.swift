@@ -25,7 +25,7 @@ struct MainView: View {
             TasksPageView(tasks: $tasks, oldTasks: $oldTasks)
                 .tabItem {
                     Label("Tasks", systemImage: "list.clipboard")
-                }
+            }
         }
     }
 }

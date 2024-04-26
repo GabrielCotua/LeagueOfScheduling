@@ -21,8 +21,8 @@ struct TaskViewsIntoCalendarView: View {
             ForEach(oldTasks) { task in
                 if (task.dateStart.formatted(.dateTime.day()) ==
                     selectedDay) {
-                        TaskBanner(task: task)
-                    }
+                     OldTasksBanner(task: task)
+                }
             }
         }
     }
