@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CalendarPageView: View {
     @Binding var tasks: [Task]
+    @Binding var oldTasks: [Task]
     @Binding var selectedDay: String
     @State private var maincolor: Color = .blue
     @State private var SecondColor: Color = .green
@@ -92,7 +93,7 @@ struct CalendarPageView: View {
                     
                     
                     TabView {
-                        TaskViewsIntoCalendarView(tasks: $tasks, selectedDay: $selectedDay)
+                        TaskViewsIntoCalendarView(tasks: $tasks, oldTasks: $oldTasks, selectedDay: $selectedDay)
                     }
                     
                 }
@@ -112,6 +113,7 @@ struct CalendarPageView: View {
 
 #Preview {
     @State var task: [Task] = []
+    @State var oldTasks: [Task] = []
     @State var selectedDay = String()
-    return CalendarPageView(tasks: $task, selectedDay: $selectedDay)
+    return CalendarPageView(tasks: $task, oldTasks: $oldTasks, selectedDay: $selectedDay)
 }

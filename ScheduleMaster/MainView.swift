@@ -18,7 +18,7 @@ struct MainView: View {
                 .tabItem {
                     Label("Home", systemImage: "house.fill")
                 }
-            CalendarPageView(tasks: $tasks, selectedDay: $selectedDay)
+            CalendarPageView(tasks: $tasks, oldTasks: $oldTasks, selectedDay: $selectedDay)
                 .tabItem {
                     Label("Calendar", systemImage: "calendar")
                 }

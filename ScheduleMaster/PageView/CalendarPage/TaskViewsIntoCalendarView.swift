@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TaskViewsIntoCalendarView: View {
     @Binding var tasks: [Task]
+    @Binding var oldTasks: [Task]
     @Binding var selectedDay: String
     var body: some View {
         ScrollView{
@@ -17,12 +18,14 @@ struct TaskViewsIntoCalendarView: View {
                     TaskBanner(task: task)
                 }
             }
+            
         }
     }
 }
 
 #Preview {
     @State var task: [Task] = []
+    @State var oldTasks: [Task] = []
     @State var selectedDay: String = ""
-    return TaskViewsIntoCalendarView(tasks: $task, selectedDay: $selectedDay)
+    return TaskViewsIntoCalendarView(tasks: $task, oldTasks: $oldTasks, selectedDay: $selectedDay)
 }
