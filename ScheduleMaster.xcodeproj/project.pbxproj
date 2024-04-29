@@ -25,7 +25,6 @@
 		B467820C2BA4A0170004B930 /* TasksPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B467820B2BA4A0170004B930 /* TasksPageView.swift */; };
 		B467820E2BA4A19A0004B930 /* CalendarPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B467820D2BA4A19A0004B930 /* CalendarPageView.swift */; };
 		B46782122BA4D4C60004B930 /* Date+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46782112BA4D4C60004B930 /* Date+Extention.swift */; };
-		B49603412BB5C59E00918BE8 /* TaskViewsIntoCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49603402BB5C59E00918BE8 /* TaskViewsIntoCalendarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,7 +47,6 @@
 		B467820B2BA4A0170004B930 /* TasksPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksPageView.swift; sourceTree = "<group>"; };
 		B467820D2BA4A19A0004B930 /* CalendarPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPageView.swift; sourceTree = "<group>"; };
 		B46782112BA4D4C60004B930 /* Date+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extention.swift"; sourceTree = "<group>"; };
-		B49603402BB5C59E00918BE8 /* TaskViewsIntoCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewsIntoCalendarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +96,6 @@
 		823A3B792BCD806D00CB0A38 /* CalendarPage */ = {
 			isa = PBXGroup;
 			children = (
-				B49603402BB5C59E00918BE8 /* TaskViewsIntoCalendarView.swift */,
 				B467820D2BA4A19A0004B930 /* CalendarPageView.swift */,
 				B46782132BA4D4D80004B930 /* CalendarFiles */,
 			);
@@ -240,7 +237,6 @@
 				82EB3FC52B9F63740058F23D /* HomePageView.swift in Sources */,
 				829E95052BB1D35400D6D676 /* AddTaskView.swift in Sources */,
 				82BCB3502BC59C4900F5CE22 /* TaskBanner.swift in Sources */,
-				B49603412BB5C59E00918BE8 /* TaskViewsIntoCalendarView.swift in Sources */,
 				B46782122BA4D4C60004B930 /* Date+Extention.swift in Sources */,
 				82EB3FC32B9F63740058F23D /* ScheduleMasterApp.swift in Sources */,
 				B467820C2BA4A0170004B930 /* TasksPageView.swift in Sources */,
@@ -380,6 +376,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ScheduleMaster/Preview Content\"";
+				DEVELOPMENT_TEAM = X9XQUCP3HG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -408,6 +405,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ScheduleMaster/Preview Content\"";
+				DEVELOPMENT_TEAM = X9XQUCP3HG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

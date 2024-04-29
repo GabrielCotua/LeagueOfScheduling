@@ -24,7 +24,7 @@ struct CalendarPageView: View {
     @State private var days: [Date] = []
     var body: some View {
         NavigationStack{
-            VStack {
+            ScrollView {
                 //  LabeledContent("Calendar Color") {
                 //    ColorPicker("", selection: $color, supportsOpacity: false)
                 //    }
@@ -69,14 +69,14 @@ struct CalendarPageView: View {
                                         .background(
                                             Circle()
                                                 .foregroundStyle(
-                                                     Date.now.startOfDay == day.startOfDay
+                                                    Date.now.startOfDay == day.startOfDay
                                                     ? .red.opacity(0.3)
-                                                     
+                                                    
                                                     : date.formatted(.dateTime.day()) == day.formatted(.dateTime.day())
                                                     ? .yellow.opacity(0.3)
                                                     
                                                     : day.formatted(.dateTime.day()) == selectedDay || day.formatted(.dateTime.day()) == date.formatted(.dateTime.day())
-                                                        ? .green.opacity(0.3)
+                                                    ? .green.opacity(0.3)
                                                     
                                                     // Changes the color of the day we are currently on based on the system date
                                                     
@@ -92,9 +92,21 @@ struct CalendarPageView: View {
                     } //end bracket of the LazyGrid layout
                     
                     
-                    TabView {
-                        TaskViewsIntoCalendarView(tasks: $tasks, oldTasks: $oldTasks, selectedDay: $selectedDay)
+                    VStack{
+                        ForEach(tasks) { task in
+                            if (task.dateStart.formatted(.dateTime.day()) == selectedDay) {
+                                TaskBanner(task: task)
+                            }
+                        }
+                        ForEach(oldTasks) { task in
+                            if (task.dateStart.formatted(.dateTime.day()) ==
+                                selectedDay) {
+                                OldTasksBanner(task: task)
+                            }
+                        }
                     }
+
+
                     
                 }
                 
