@@ -10,10 +10,12 @@ import SwiftUI
 var totalPoints = 0
 var dailyPoints = 0
 
+
 struct HomePageView: View {
     @Binding var tasks: [Task]
     @Binding var oldTasks: [Task]
     @Binding var showAlert: Bool
+    
     var body: some View {
         NavigationStack{
             Section{
@@ -54,7 +56,18 @@ struct HomePageView: View {
                         
                     }
                     .alert(isPresented: $showAlert) {
-                        Alert(title: Text("Task Expired"), message: Text("This task has expired."), dismissButton: .default(Text("OK")))
+                        Alert(
+                            title: Text("Your time for \(oldTasks[oldTasks.count-1].name) is finished"),
+                            message: Text("Did you complete your task?"),
+                            
+                            primaryButton: .destructive(Text("No")),
+                            
+                            secondaryButton: .default(Text("Yes")){
+                                oldTasks[oldTasks.count-1].isCompleted = true
+                                var tempTask = oldTasks[oldTasks.count-1]
+                                totalPoints = totalPoints + Int(tempTask.difficultyRating) * (tempTask.timeMinutes + (tempTask.timeHours * 60))
+                            }
+                        )
                     }
                     .padding()
                     .background(.tint)
