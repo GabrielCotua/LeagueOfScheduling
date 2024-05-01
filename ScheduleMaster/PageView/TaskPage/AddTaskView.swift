@@ -134,6 +134,9 @@ struct AddTaskView: View {
                         showingNameAlert = false
                         showingPastDateAlert = false
                         showingTaskDurationAlert = false
+                        if(task.description == ""){
+                            task.description = "(no description)"
+                        }
                         task.endUpDate()
                         tasks.append(task)
                         organizeTasks(tasks: $tasks)
