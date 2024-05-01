@@ -104,7 +104,7 @@ struct AddTaskView: View {
                         Text("Min").fontWeight(.bold)
                         Spacer()
                     }.padding(.horizontal)
-                        .frame(height: 70)
+                        .frame(height: 90)
                     
                     Text("\(task.timeHours) Hours \(task.timeMinutes) Minutes")
                 }
