@@ -94,9 +94,6 @@ struct CalendarPageView: View {
                                                 Date.now.startOfDay == day.startOfDay
                                                 ? .red.opacity(0.3)
                                                 
-                                                : date.formatted(.dateTime.day()) == day.formatted(.dateTime.day())
-                                                ? .yellow.opacity(0.3)
-                                                
                                                 : day.formatted(.dateTime.day()) == selectedDay || day.formatted(.dateTime.day()) == date.formatted(.dateTime.day())
                                                 ? .green.opacity(0.3)
                                                 
