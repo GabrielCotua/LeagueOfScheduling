@@ -8,7 +8,7 @@
 import Foundation
 
 extension Date {
-    //credits to: https://gist.github.com/StewartLynch/90ecac7eff9fe438bba580e96643fe70
+    //// credits to: https://gist.github.com/StewartLynch/90ecac7eff9fe438bba580e96643fe70
     static var capitalizedFirstLettersOfWeekdays: [String] {
         let calendar = Calendar.current
         let weekdays = calendar.shortWeekdaySymbols
@@ -77,4 +77,26 @@ extension Date {
     var startOfDay: Date {
         Calendar.current.startOfDay(for: self)
     }
+
+    var nextMonth: Date {
+        let month = Calendar.current.date(byAdding: .month, value: 1, to: self)!
+        return month
+    }
+    
+    var prevMonth: Date {
+        let month = Calendar.current.date(byAdding: .month, value: -1, to: self)!
+        return month
+    }
+    
+    var monthNamesProtection: Date {
+        var date = self
+        if ((date.monthInt) > 12) {
+            date = Calendar.current.date(bySetting: .month, value: 1, of: date)!
+        }
+        if ((date.monthInt) < 1) {
+            date = Calendar.current.date(bySetting: .month, value: 12, of: date)!
+        }
+        return date
+    }
+    
 }
