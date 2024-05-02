@@ -64,7 +64,7 @@ struct HomePageView: View {
                             
                             secondaryButton: .default(Text("Yes")){
                                 oldTasks[oldTasks.count-1].isCompleted = true
-                                var tempTask = oldTasks[oldTasks.count-1]
+                                let tempTask = oldTasks[oldTasks.count-1]
                                 totalPoints = totalPoints + Int(tempTask.difficultyRating) * (tempTask.timeMinutes + (tempTask.timeHours * 60))
                             }
                         )

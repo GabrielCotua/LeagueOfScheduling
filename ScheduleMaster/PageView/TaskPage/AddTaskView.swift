@@ -104,7 +104,7 @@ struct AddTaskView: View {
                         Text("Min").fontWeight(.bold)
                         Spacer()
                     }.padding(.horizontal)
-                        .frame(height: 70)
+                        .frame(height: 90)
                     
                     Text("\(task.timeHours) Hours \(task.timeMinutes) Minutes")
                 }
@@ -134,6 +134,9 @@ struct AddTaskView: View {
                         showingNameAlert = false
                         showingPastDateAlert = false
                         showingTaskDurationAlert = false
+                        if(task.description == ""){
+                            task.description = "(no description)"
+                        }
                         task.endUpDate()
                         tasks.append(task)
                         organizeTasks(tasks: $tasks)
