@@ -71,7 +71,7 @@ extension Date {
     }
     
     var monthInt: Int {
-        Calendar.current.component(.month, from: self)
+        Calendar.current.component(.month, from: self) // gives you the value of the month that you value "Date"
     }
     
     var startOfDay: Date {
@@ -79,22 +79,22 @@ extension Date {
     }
 
     var nextMonth: Date {
-        let month = Calendar.current.date(byAdding: .month, value: 1, to: self)!
+        let month = Calendar.current.date(byAdding: .month, value: 1, to: self)! // goes to following month
         return month
     }
     
     var prevMonth: Date {
-        let month = Calendar.current.date(byAdding: .month, value: -1, to: self)!
+        let month = Calendar.current.date(byAdding: .month, value: -1, to: self)! // goes to previous month
         return month
     }
     
-    var monthNamesProtection: Date {
+    var monthNamesProtection: Date { // checks for month stay between 1 and 12
         var date = self
         if ((date.monthInt) > 12) {
-            date = Calendar.current.date(bySetting: .month, value: 1, of: date)!
+            date = Calendar.current.date(bySetting: .month, value: 1, of: date)! // set the month to 1 (January)
         }
         if ((date.monthInt) < 1) {
-            date = Calendar.current.date(bySetting: .month, value: 12, of: date)!
+            date = Calendar.current.date(bySetting: .month, value: 12, of: date)! // set the month to 12 (December)
         }
         return date
     }

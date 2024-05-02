@@ -5,6 +5,8 @@
 //  Created by 64023073 on 3/15/24.
 //
 //  reference https://www.youtube.com/watch?v=X_boPC1tg_Y
+
+
 import SwiftUI
 import Foundation
 
@@ -28,15 +30,17 @@ struct CalendarPageView: View {
         
         NavigationStack{
             VStack {
-                //// LabeledContent("Calendar Color") {
-                ////   ColorPicker("", selection: $color, supportsOpacity: false)
-                ////   }
+               /* 
+                LabeledContent("Calendar Color") {
+                  ColorPicker("", selection: $color, supportsOpacity: false)
+                  }
+                */
                 HStack() {
-                    Text(monthNames[date.monthInt-1])
+                    Text(monthNames[date.monthInt-1]) // shows the month that we are at
                         .font(.system(size: 30))
                         .multilineTextAlignment(.leading)
                     
-                    Text(date.formatted(.dateTime.year()))
+                    Text(date.formatted(.dateTime.year())) // shows the year that we are at
                         .font(.system(size: 25))
                         .multilineTextAlignment(.trailing)
                     
@@ -60,7 +64,7 @@ struct CalendarPageView: View {
                             .fontWeight(.black)
                             .foregroundStyle(maincolor)
                             .frame(maxWidth: .infinity)
-                    }
+                    } // this generates each first letter of the calendar
                 }
                 LazyVGrid(columns: columns) {
                     ForEach(days, id: \.self) { day in
@@ -118,28 +122,29 @@ struct CalendarPageView: View {
                             
                         }
                 )
-////                HStack {
-////                    Button(action: { //button to move to the prev month
-////                        date = date.prevMonth //moves to previous month
-////                        date = date.monthNamesProtection //checks that the actual
-////                                                        // month still inside the array
-////
-////                    }) {
-////                        Image(systemName:"arrow.left")
-////                    }.font(.system(size: 15))
-////
-////                    Spacer()
-////
-////                    Button(action: { //button to move to the next moenth
-////                        date = date.nextMonth //moves to the next month
-////                        date = date.monthNamesProtection //checks that the actual
-////                                                        // month still inside the array
-////
-////                    }) {
-////                        Image(systemName:"arrow.right")
-////                    }.font(.system(size: 15))
-////                }.padding([.top, .leading, .trailing], 15)
-                
+                /*
+                HStack {
+                    Button(action: { //button to move to the prev month
+                        date = date.prevMonth //moves to previous month
+                        date = date.monthNamesProtection //checks that the actual
+                                                        // month still inside the array
+
+                    }) {
+                        Image(systemName:"arrow.left")
+                    }.font(.system(size: 15))
+
+                    Spacer()
+
+                    Button(action: { //button to move to the next moenth
+                        date = date.nextMonth //moves to the next month
+                        date = date.monthNamesProtection //checks that the actual
+                                                        // month still inside the array
+
+                    }) {
+                        Image(systemName:"arrow.right")
+                    }.font(.system(size: 15))
+                }.padding([.top, .leading, .trailing], 15)
+                */
                 
                 
                 ScrollView(){
