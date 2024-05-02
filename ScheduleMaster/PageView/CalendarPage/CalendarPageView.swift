@@ -52,6 +52,12 @@ struct CalendarPageView: View {
                         date = Date.now
                     }) {
                         Text("Today")
+                            .bold()
+                            .fontWeight(.black)
+                            .background{
+                                Rectangle()
+                                    .foregroundStyle(maincolor.opacity(0.3))
+                        }
                     }
                     .buttonStyle(DefaultButtonStyle())
                     
