@@ -7,17 +7,21 @@
 //  reference https://www.youtube.com/watch?v=X_boPC1tg_Y
 
 
-import SwiftUI
 import Foundation
+import SwiftUI
 
 struct CalendarPageView: View {
     @Binding var tasks: [Task]
     @Binding var oldTasks: [Task]
     @Binding var selectedDay: String
+    
     @State private var maincolor: Color = .blue
     @State private var SecondColor: Color = .green
     @State private var date = Date.now
     @State private var monthNames = Date.fullMonthNames
+    @State private var nTasks: Int = 0 // Move nTasks here
+    @State private var days: [Date] = []
+
     let daysOfWeek = Date.capitalizedFirstLettersOfWeekdays
     let columns = Array(repeating: GridItem(.flexible()), count: 7)
     let myFormat = Date.FormatStyle()
@@ -25,7 +29,7 @@ struct CalendarPageView: View {
         .day()
         .month()
         .locale(Locale(identifier: "en_US"))
-    @State private var days: [Date] = []
+    
     var body: some View {
         
         NavigationStack{
@@ -74,8 +78,10 @@ struct CalendarPageView: View {
                 }
                 LazyVGrid(columns: columns) {
                     ForEach(days, id: \.self) { day in
+                        
                         if day.monthInt != date.monthInt {
                             Text("")
+                            
                         } else {
                             Button(action: {
                                 // Handle the action when the day is tapped
@@ -94,8 +100,23 @@ struct CalendarPageView: View {
                                                 Date.now.startOfDay == day.startOfDay
                                                 ? .red.opacity(0.3)
                                                 
-                                                : day.formatted(.dateTime.day()) == selectedDay || day.formatted(.dateTime.day()) == date.formatted(.dateTime.day())
+                                                : day.formatted(.dateTime.day().month().year()) == selectedDay || day.formatted(.dateTime.day().month().year()) == date.formatted(.dateTime.day().month().year())
                                                 ? .green.opacity(0.3)
+                                                
+                                                : day.hasTasks(tasks: $tasks, date: day) >= 5
+                                                ? maincolor.opacity(0.8)
+                                                
+                                                : day.hasTasks(tasks: $tasks, date: day) == 4
+                                                ? maincolor.opacity(0.7)
+                                                
+                                                : day.hasTasks(tasks: $tasks, date: day) == 3
+                                                ? maincolor.opacity(0.6)
+                                                
+                                                : day.hasTasks(tasks: $tasks, date: day) == 2
+                                                ? maincolor.opacity(0.5)
+                                                
+                                                : day.hasTasks(tasks: $tasks, date: day) >= 1
+                                                ? maincolor.opacity(0.4)
                                                 
                                                 // Changes the color of the day we are currently on based on the system date
                                                 
@@ -104,6 +125,7 @@ struct CalendarPageView: View {
                                             )
                                     )
                             }
+                            
                             .buttonStyle(PlainButtonStyle())
                             // Use plain button style to remove the default button style
                         }
@@ -168,6 +190,7 @@ struct CalendarPageView: View {
             .padding()
             .onAppear {
                 days = date.calendarDisplayDays
+
             }
             .onChange(of: date) {
                 days = date.calendarDisplayDays

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 extension Date {
     //// credits to: https://gist.github.com/StewartLynch/90ecac7eff9fe438bba580e96643fe70
@@ -98,5 +99,19 @@ extension Date {
         }
         return date
     }
+    func hasTasks(tasks: Binding<[Task]>, date: Date) -> Int {
+        let calendar = Calendar.current
+        
+        var n = 0
+        tasks.wrappedValue.forEach { task in
+            if (calendar.isDate(task.dateStart, inSameDayAs: date)) {
+                n = n + 1
+            }
+        }
+        return n
+    }
     
+
+    
+
 }
