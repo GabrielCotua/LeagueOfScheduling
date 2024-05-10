@@ -18,7 +18,9 @@ struct TaskBanner: View {
                             Text(task!.name)
                                 .font(.title3)
                                 .fontWeight(.semibold)
-                            Spacer()
+                            /*ForEach(1...task!.difficultyRating) { i in
+                                Image(systemName: "stars.fill")
+                            })*/
                             
                         }
                         Divider()

@@ -13,7 +13,7 @@ struct TasksPageView: View {
     @Binding var oldTasks: [Task]
     @Binding var showAlert: Bool
     
-    var tempTask = Task(name: "dsafiuhasf", description: "osjdfos", timeMinutes: 0, timeHours: 0, difficultyRating: 1.0, dateStart: Date(),dateEnd: Date())
+    var tempTask = Task(name: "dsafiuhasf", description: "osjdfos", timeMinutes: 0, timeHours: 0, difficultyRatingDouble: 1.0, dateStart: Date(),dateEnd: Date())
     
     @State private var currentTime = Date()
 

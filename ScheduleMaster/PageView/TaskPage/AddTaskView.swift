@@ -14,17 +14,17 @@ struct Task: Identifiable, Hashable{
     var description: String
     var timeMinutes: Int
     var timeHours: Int
-    var difficultyRating: Double
+    var difficultyRating: Int
     var dateStart: Date
     var dateEnd: Date
     var isCompleted: Bool
     
-    init(name: String, description: String, timeMinutes: Int, timeHours: Int, difficultyRating: Double, dateStart: Date, dateEnd: Date) {
+    init(name: String, description: String, timeMinutes: Int, timeHours: Int, difficultyRatingDouble: Double, dateStart: Date, dateEnd: Date) {
         self.name = name
         self.description = description
         self.timeMinutes = timeMinutes
         self.timeHours = timeHours
-        self.difficultyRating = difficultyRating
+        self.difficultyRating = Int(difficultyRatingDouble)
         self.dateStart = dateStart
         self.dateEnd = dateStart
         self.isCompleted = false
@@ -36,7 +36,7 @@ struct Task: Identifiable, Hashable{
 
 
 struct AddTaskView: View {
-    @State private var task = Task(name: "", description: "", timeMinutes: 0, timeHours: 0, difficultyRating: 1.0, dateStart: Date(), dateEnd: Date())
+    @State private var task = Task(name: "", description: "", timeMinutes: 0, timeHours: 0, difficultyRatingDouble: 1.0, dateStart: Date(), dateEnd: Date())
     
     @State private var showingNameAlert = false
     
@@ -50,6 +50,7 @@ struct AddTaskView: View {
     
     @Environment(\.dismiss) var dismiss
 
+    @State var difficultyRatingDouble = 1.0
     
     var body: some View {
         NavigationStack{
@@ -112,9 +113,9 @@ struct AddTaskView: View {
                
                 Section("Difficulty Rating"){
                     HStack{
-                        Text("\(task.difficultyRating, specifier: "%.0f")")
+                        Text("\(difficultyRatingDouble, specifier: "%.0f")")
                             .padding(.horizontal)
-                        Slider(value: $task.difficultyRating, in: 1...5, step: 1){
+                        Slider(value: $difficultyRatingDouble, in: 1...5, step: 1){
                         }
                     
                     }
