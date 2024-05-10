@@ -44,5 +44,5 @@ struct OldTasksBanner: View {
 }
 
 #Preview {
-    OldTasksBanner(task: Task(name: "dsafiuhasf", description: "osjdfos", timeMinutes: 0, timeHours: 0, difficultyRating: 1.0, dateStart: Date(),dateEnd: Date()))
+    OldTasksBanner(task: Task(name: "dsafiuhasf", description: "osjdfos", timeMinutes: 0, timeHours: 0, difficultyRatingDouble: 1.0, dateStart: Date(),dateEnd: Date()))
 }
