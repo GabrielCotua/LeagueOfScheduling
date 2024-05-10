@@ -24,10 +24,10 @@ struct CalendarPageView: View {
 
     let daysOfWeek = Date.capitalizedFirstLettersOfWeekdays
     let columns = Array(repeating: GridItem(.flexible()), count: 7)
-    let myFormat = Date.FormatStyle()
-        .year()
+    let sameDate = Date.FormatStyle()
         .day()
         .month()
+        .year()
         .locale(Locale(identifier: "en_US"))
     
     var body: some View {
@@ -86,7 +86,7 @@ struct CalendarPageView: View {
                             Button(action: {
                                 // Handle the action when the day is tapped
                                 
-                                selectedDay = day.formatted(.dateTime.day().month().year()) //stores the date that you tapped on
+                                selectedDay = day.formatted(sameDate) //stores the date that you tapped on
                             }) {
                                 // Text that becomes interactive
                                 
@@ -100,7 +100,7 @@ struct CalendarPageView: View {
                                                 Date.now.startOfDay == day.startOfDay
                                                 ? .red.opacity(0.3)
                                                 
-                                                : day.formatted(.dateTime.day().month().year()) == selectedDay || day.formatted(.dateTime.day().month().year()) == date.formatted(.dateTime.day().month().year())
+                                                : day.formatted(sameDate) == selectedDay || day.formatted(sameDate) == date.formatted(sameDate)
                                                 ? .green.opacity(0.3)
                                                 
                                                 : day.hasTasks(tasks: $tasks, date: day) >= 5
@@ -174,12 +174,12 @@ struct CalendarPageView: View {
                 
                 ScrollView(){
                     ForEach(tasks) { task in
-                        if (task.dateStart.formatted(.dateTime.day().month().year()) == selectedDay) {
+                        if (task.dateStart.formatted(sameDate) == selectedDay) {
                             TaskBanner(task: task) //creates tasks item under the calendar
                         }
                     }
                     ForEach(oldTasks) { task in
-                        if (task.dateStart.formatted(.dateTime.day().month().year()) ==
+                        if (task.dateStart.formatted(sameDate) ==
                             selectedDay) {
                             OldTasksBanner(task: task) //creates tasks item under the calendar
                         }
