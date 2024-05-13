@@ -139,6 +139,7 @@ struct AddTaskView: View {
                             task.description = "(no description)"
                         }
                         task.endUpDate()
+                        task.difficultyRating = Int(difficultyRatingDouble)
                         tasks.append(task)
                         organizeTasks(tasks: $tasks)
                         dismiss()
