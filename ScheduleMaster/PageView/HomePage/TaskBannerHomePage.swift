@@ -25,28 +25,36 @@ struct TaskBannerHomePage: View {
                 Section{
                     VStack(alignment: .leading) {
                         HStack{
-                            Text((task)!.name )
+                            Text(task!.name)
                                 .font(.title3)
                                 .fontWeight(.semibold)
+                            ForEach(1...task!.difficultyRating, id:\.self) { i in
+                                Image(systemName: "star.fill")
+                                    .foregroundColor(.white)
+                                    .font(.system(size: 15))
+                            }
                             Spacer()
-                            Text("\((task)!.timeHours) Hours\((task)!.timeMinutes) Minutes")
+                            Text(task!.dateStart.formatted(.dateTime.day().month()))
+                            
+                        }
+                        
+                        HStack{
+                            Text("\(task!.timeHours):\(task!.timeMinutes) hours")
+                            Spacer()
+                            
                         }
                         Divider()
                         HStack{
-                            Text((task)!.description)
-                            Spacer()
-                            Text("Rating: \((task)!.difficultyRating, specifier: "%.0f")")
+                            Text(task!.description)
                         }
-                        
                     }
-                    
-                    .background(.tint)
                 }
             }
+            .background(.tint)
         }
     }
 }
 
 #Preview {
-    TaskBannerHomePage(task: Task(name: "dsafiuhasf", description: "osjdfos", timeMinutes: 0, timeHours: 0, difficultyRatingDouble: 1.0, dateStart: Date(),dateEnd: Date()), taskType: "Current")
+    TaskBannerHomePage(task: Task(name: "dsafiuhasf", description: "osjdfos", timeMinutes: 0, timeHours: 0, difficultyRatingDouble: 4.0, dateStart: Date(),dateEnd: Date()), taskType: "Current")
 }

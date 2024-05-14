@@ -7,9 +7,8 @@
 
 import SwiftUI
 
-
-struct Task: Identifiable, Hashable{
-    let id = UUID()
+struct Task: Identifiable, Hashable, Codable{
+    var id = UUID()
     var name: String
     var description: String
     var timeMinutes: Int
@@ -49,8 +48,12 @@ struct AddTaskView: View {
     @Binding var oldTasks: [Task]
     
     @Environment(\.dismiss) var dismiss
+    
+    @EnvironmentObject var mainViewModel: MainViewModel 
 
     @State var difficultyRatingDouble = 1.0
+    
+
     
     var body: some View {
         NavigationStack{
@@ -123,8 +126,30 @@ struct AddTaskView: View {
                 
                 Button {
                     /*if(task.name == ""){
-                        showingNameAlert = true
+                     showingNameAlert = true
+                     }
+                     else if (task.dateStart.adding(minutes: 5).compare(Date()).rawValue < 0){
+                     showingPastDateAlert = true
+                     }
+                     else if (task.timeHours == 0 && task.timeMinutes < 5){
+                     showingTaskDurationAlert = true
+                     }
+                     else{*/
+                    showingNameAlert = false
+                    showingPastDateAlert = false
+                    showingTaskDurationAlert = false
+                    if(task.description == ""){
+                        task.description = "(no description)"
                     }
+<<<<<<< HEAD
+                    task.endUpDate()
+                    tasks.append(task)
+                    organizeTasks(tasks: $tasks)
+                    dismiss()
+                    
+                    let viewModel = MainViewModel()
+                    viewModel.saveData(tasks: tasks, oldTasks: oldTasks)
+=======
                     else if (task.dateStart.adding(minutes: 5).compare(Date()).rawValue < 0){
                         showingPastDateAlert = true
                     }
@@ -139,9 +164,11 @@ struct AddTaskView: View {
                             task.description = "(no description)"
                         }
                         task.endUpDate()
+                        task.difficultyRating = Int(difficultyRatingDouble)
                         tasks.append(task)
                         organizeTasks(tasks: $tasks)
                         dismiss()
+>>>>>>> d0b48833d4660e6f44b22f7ecb609ce159b1248d
                     //}
                 } label: {
                     Text("Submit")

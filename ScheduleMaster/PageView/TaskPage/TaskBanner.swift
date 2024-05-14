@@ -18,23 +18,24 @@ struct TaskBanner: View {
                             Text(task!.name)
                                 .font(.title3)
                                 .fontWeight(.semibold)
-                            /*ForEach(1...task!.difficultyRating) { i in
-                                Image(systemName: "stars.fill")
-                            })*/
+                            ForEach(1...task!.difficultyRating, id:\.self) { i in
+                                Image(systemName: "star.fill")
+                                    .foregroundColor(.white)
+                                    .font(.system(size: 15))
+                            }
+                            Spacer()
+                            Text(task!.dateStart.formatted(.dateTime.day().month()))
                             
                         }
-                        Divider()
                         
                         HStack{
-                            Text("\(task!.timeHours) Hours \(task!.timeMinutes) Minutes")
+                            Text("\(task!.timeHours):\(task!.timeMinutes) hours")
                             Spacer()
-                            Text(DateFormatter.localizedString(from: task!.dateStart, dateStyle: .medium, timeStyle: .medium))
+                           
                         }
                         Divider()
                         HStack{
                             Text(task!.description)
-                            Spacer()
-                            Text("Rating: \(task!.difficultyRating, specifier: "%.0f")")
                         }
                         
                     }
@@ -50,5 +51,5 @@ struct TaskBanner: View {
 }
 
 #Preview {
-    TaskBanner(task: Task(name: "dsafiuhasf", description: "osjdfos", timeMinutes: 0, timeHours: 0, difficultyRatingDouble: 1.0, dateStart: Date(),dateEnd: Date()))
+    TaskBanner(task: Task(name: "Homeworks", description: "Finish pages 21 and 22 and bla bla yippity yap.", timeMinutes: 10, timeHours: 1, difficultyRatingDouble: 3.0, dateStart: Date(),dateEnd: Date()))
 }
