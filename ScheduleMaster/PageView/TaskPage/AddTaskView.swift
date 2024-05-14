@@ -141,7 +141,6 @@ struct AddTaskView: View {
                     if(task.description == ""){
                         task.description = "(no description)"
                     }
-<<<<<<< HEAD
                     task.endUpDate()
                     tasks.append(task)
                     organizeTasks(tasks: $tasks)
@@ -149,8 +148,7 @@ struct AddTaskView: View {
                     
                     let viewModel = MainViewModel()
                     viewModel.saveData(tasks: tasks, oldTasks: oldTasks)
-=======
-                    else if (task.dateStart.adding(minutes: 5).compare(Date()).rawValue < 0){
+                   /* else if (task.dateStart.adding(minutes: 5).compare(Date()).rawValue < 0){
                         showingPastDateAlert = true
                     }
                     else if (task.timeHours == 0 && task.timeMinutes < 5){
@@ -168,7 +166,6 @@ struct AddTaskView: View {
                         tasks.append(task)
                         organizeTasks(tasks: $tasks)
                         dismiss()
->>>>>>> d0b48833d4660e6f44b22f7ecb609ce159b1248d
                     //}
                 } label: {
                     Text("Submit")
