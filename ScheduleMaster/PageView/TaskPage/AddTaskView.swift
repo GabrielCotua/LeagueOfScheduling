@@ -125,7 +125,7 @@ struct AddTaskView: View {
                 }
                 
                 Button {
-                    /*if(task.name == ""){
+                    /*if(task.name == "" || task.name.count>15){
                      showingNameAlert = true
                      }
                      else if (task.dateStart.adding(minutes: 5).compare(Date()).rawValue < 0){

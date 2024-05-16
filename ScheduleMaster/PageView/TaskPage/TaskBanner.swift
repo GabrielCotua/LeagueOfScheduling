@@ -32,6 +32,7 @@ struct TaskBanner: View {
                             Text("\(task!.timeHours):\(task!.timeMinutes) hours")
                             Spacer()
                            
+                            Text(task!.dateStart.formatted(date: .omitted, time: .shortened))
                         }
                         Divider()
                         HStack{
