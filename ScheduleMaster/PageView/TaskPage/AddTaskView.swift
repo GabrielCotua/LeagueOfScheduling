@@ -125,29 +125,7 @@ struct AddTaskView: View {
                 }
                 
                 Button {
-                    /*if(task.name == "" || task.name.count>15){
-                     showingNameAlert = true
-                     }
-                     else if (task.dateStart.adding(minutes: 5).compare(Date()).rawValue < 0){
-                     showingPastDateAlert = true
-                     }
-                     else if (task.timeHours == 0 && task.timeMinutes < 5){
-                     showingTaskDurationAlert = true
-                     }
-                     else{*/
-                    showingNameAlert = false
-                    showingPastDateAlert = false
-                    showingTaskDurationAlert = false
-                    if(task.description == ""){
-                        task.description = "(no description)"
-                    }
-                    task.endUpDate()
-                    tasks.append(task)
-                    organizeTasks(tasks: $tasks)
-                    dismiss()
                     
-                    let viewModel = MainViewModel()
-                    viewModel.saveData(tasks: tasks, oldTasks: oldTasks)
                    /* else if (task.dateStart.adding(minutes: 5).compare(Date()).rawValue < 0){
                         showingPastDateAlert = true
                     }
@@ -161,6 +139,8 @@ struct AddTaskView: View {
                         if(task.description == ""){
                             task.description = "(no description)"
                         }
+                        let viewModel = MainViewModel()
+                                        viewModel.saveData(tasks: tasks, oldTasks: oldTasks)
                         task.endUpDate()
                         task.difficultyRating = Int(difficultyRatingDouble)
                         tasks.append(task)
