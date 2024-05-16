@@ -139,12 +139,13 @@ struct AddTaskView: View {
                         if(task.description == ""){
                             task.description = "(no description)"
                         }
-                        let viewModel = MainViewModel()
-                                        viewModel.saveData(tasks: tasks, oldTasks: oldTasks)
+                        
                         task.endUpDate()
                         task.difficultyRating = Int(difficultyRatingDouble)
                         tasks.append(task)
                         organizeTasks(tasks: $tasks)
+                        let viewModel = MainViewModel()
+                                    viewModel.saveData(tasks: tasks, oldTasks: oldTasks)
                         dismiss()
                     //}
                 } label: {

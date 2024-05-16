@@ -29,7 +29,12 @@ struct TaskBanner: View {
                         }
                         
                         HStack{
-                            Text("\(task!.timeHours):\(task!.timeMinutes) hours")
+                            if(task!.timeMinutes < 10){
+                                Text("\(task!.timeHours):0\(task!.timeMinutes) hours")
+                            }
+                            else{
+                                Text("\(task!.timeHours):\(task!.timeMinutes) hours")
+                            }
                             Spacer()
                            
                             Text(task!.dateStart.formatted(date: .omitted, time: .shortened))
@@ -52,5 +57,5 @@ struct TaskBanner: View {
 }
 
 #Preview {
-    TaskBanner(task: Task(name: "Homeworks", description: "Finish pages 21 and 22 and bla bla yippity yap.", timeMinutes: 10, timeHours: 1, difficultyRatingDouble: 3.0, dateStart: Date(),dateEnd: Date()))
+    TaskBanner(task: Task(name: "Homeworks", description: "Finish pages 21 and 22 and bla bla yippity yap.", timeMinutes: 5, timeHours: 1, difficultyRatingDouble: 3.0, dateStart: Date(),dateEnd: Date()))
 }
