@@ -28,7 +28,7 @@ struct ProfileOptions: View {
                         Label("Old Tasks", systemImage: "checkmark.square")
                     }
                     NavigationLink {
-                        SettingsPageView()
+                        SettingsPageView(tasks: $tasks, oldTasks: $oldTasks)
                     }
                 label:{
                     Label("Settings", systemImage: "gearshape")

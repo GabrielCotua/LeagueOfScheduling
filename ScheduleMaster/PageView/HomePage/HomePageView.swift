@@ -8,7 +8,6 @@
 import SwiftUI
 
 var totalPoints = 0
-var dailyPoints = 0
 
 
 struct HomePageView: View {
@@ -19,81 +18,83 @@ struct HomePageView: View {
     var body: some View {
         NavigationStack{
             Section{
-                VStack{
-                    HStack{
-                        HStack
-                        {
+                ScrollView{
+                    VStack{
+                        HStack{
+                            HStack
+                            {
+                                
+                                Text("Total Points: \(totalPoints)")
+                                Spacer()
+                                
+                            }
+                            .font(.title3)
+                            .fontWeight(.semibold)
+                            .padding(.vertical)
                             
-                            Text("Total Points: \(totalPoints)")
-                            Spacer()
-                            Text("Daily Points: \(dailyPoints) ")
+                            .cornerRadius(10)
+                            .padding(.leading)
                             
-                        }
-                        .font(.title3)
-                        .fontWeight(.semibold)
-                        .padding(.vertical)
-                       
-                        .cornerRadius(10)
-                        .padding(.leading)
-                        
-                        NavigationLink(destination: ProfileOptions(tasks: $tasks, oldTasks: $oldTasks)){
-                            Image(systemName: "person.circle.fill")
-                        }
-                  
+                            NavigationLink(destination: ProfileOptions(tasks: $tasks, oldTasks: $oldTasks)){
+                                Image(systemName: "person.circle.fill")
+                            }
+                            
                             .padding(.trailing)
                             .padding(.leading, 5)
                             .font(.system(size: 40))
-                    }
-                   
-                    
-                    
-                    VStack(alignment: .leading){
-                        Text("Current task: ")
-                            .font(.title3)
-                            .fontWeight(.semibold)
-                        Divider()
-                        TaskBannerHomePage(task: findCurrentTask(tasks: tasks), taskType: "Current")
+                        }
                         
-                    }
-                    .alert(isPresented: $showAlert) {
-                        Alert(
-                            title: Text("Your time for \(oldTasks[oldTasks.count-1].name) is finished"),
-                            message: Text("Did you complete your task?"),
+                        
+                        
+                        VStack(alignment: .leading){
+                            Text("Current task: ")
+                                .font(.title3)
+                                .fontWeight(.semibold)
+                            Divider()
+                            TaskBannerHomePage(task: findCurrentTask(tasks: tasks), taskType: "Current")
                             
-                            primaryButton: .destructive(Text("No")),
+                        }
+                        .alert(isPresented: $showAlert) {
+                            Alert(
+                                title: Text("Your time for \(oldTasks[oldTasks.count-1].name) is finished"),
+                                message: Text("Did you complete your task?"),
+                                
+                                primaryButton: .destructive(Text("No")),
+                                
+                                secondaryButton: .default(Text("Yes")){
+                                    oldTasks[oldTasks.count-1].isCompleted = true
+                                    let tempTask = oldTasks[oldTasks.count-1]
+                                    totalPoints = totalPoints + Int(tempTask.difficultyRating) * (tempTask.timeMinutes + (tempTask.timeHours * 60))
+                                }
+                            )
+                        }
+                        .padding()
+                        .background(.tint)
+                        .cornerRadius(20)
+                        .padding()
+                        
+                        
+                        VStack(alignment: .leading)
+                        {
+                            Text("Upcoming task: ")
+                                .font(.title3)
+                                .fontWeight(.semibold)
+                            Divider()
                             
-                            secondaryButton: .default(Text("Yes")){
-                                oldTasks[oldTasks.count-1].isCompleted = true
-                                let tempTask = oldTasks[oldTasks.count-1]
-                                totalPoints = totalPoints + Int(tempTask.difficultyRating) * (tempTask.timeMinutes + (tempTask.timeHours * 60))
-                            }
-                        )
-                    }
-                    .padding()
-                    .background(.tint)
-                    .cornerRadius(20)
-                    .padding()
-                    
-                    
-                    VStack(alignment: .leading)
-                    {
-                        Text("Upcoming task: ")
-                            .font(.title3)
-                            .fontWeight(.semibold)
-                        Divider()
+                            TaskBannerHomePage(task: findClosestTask(tasks: tasks), taskType: "Upcoming")
+                            
+                        }
+                        .padding()
+                        .background(.tint)
+                        .cornerRadius(20)
+                        .padding()
                         
-                        TaskBannerHomePage(task: findClosestTask(tasks: tasks), taskType: "Upcoming")
-                        
+                        Spacer()
                     }
-                    .padding()
-                    .background(.tint)
-                    .cornerRadius(20)
-                    .padding()
                     
-                    Spacer()
                 }
+                .navigationTitle("Home")
             }
-            .navigationTitle("Home")
         }
     }
 }
