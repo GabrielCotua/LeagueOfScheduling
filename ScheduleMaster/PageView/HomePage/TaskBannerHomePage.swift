@@ -39,14 +39,21 @@ struct TaskBannerHomePage: View {
                         }
                         
                         HStack{
-                            Text("\(task!.timeHours):\(task!.timeMinutes) hours")
-                            Spacer()
+                            if(task!.timeHours != 0){Text("\(task!.timeHours)h \(task!.timeMinutes)m")
+                            }
+                            else{
+                                Text("\(task!.timeMinutes)m")
+                            }
                             
+                            Spacer()
+                           
+                            Text(task!.dateStart.formatted(date: .omitted, time: .shortened))
                         }
                         Divider()
                         HStack{
                             Text(task!.description)
                         }
+                        
                     }
                 }
             }
@@ -56,5 +63,5 @@ struct TaskBannerHomePage: View {
 }
 
 #Preview {
-    TaskBannerHomePage(task: Task(name: "dsafiuhasf", description: "osjdfos", timeMinutes: 0, timeHours: 0, difficultyRatingDouble: 4.0, dateStart: Date(),dateEnd: Date()), taskType: "Current")
+    TaskBannerHomePage(task: Task(name: "Homeworks", description: "Finish pages 21 and 22 and bla bla yippity yap.", timeMinutes: 9, timeHours: 1, difficultyRatingDouble: 3.0, dateStart: Date(),dateEnd: Date()), taskType: "Current")
 }
