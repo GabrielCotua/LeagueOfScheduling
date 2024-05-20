@@ -49,7 +49,8 @@ struct TaskBanner: View {
                     .padding()
                     .background(.tint)
                     .cornerRadius(20)
-                    .padding()
+                    .padding(.horizontal)
+                    .padding(.vertical,5)
                 }
             }
         }

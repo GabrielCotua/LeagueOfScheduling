@@ -87,7 +87,7 @@ struct HomePageView: View {
                         .padding()
                         .background(.tint)
                         .cornerRadius(20)
-                        .padding()
+                        .padding(.horizontal)
                         
                         Spacer()
                     }
