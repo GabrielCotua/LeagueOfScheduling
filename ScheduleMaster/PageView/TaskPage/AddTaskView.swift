@@ -126,13 +126,16 @@ struct AddTaskView: View {
                 
                 Button {
                     
-                   /* else if (task.dateStart.adding(minutes: 5).compare(Date()).rawValue < 0){
+                    if(task.name == ""){
+                        showingNameAlert = false
+                    }
+                    else if (task.dateStart.adding(minutes: 5).compare(Date()).rawValue < 0){
                         showingPastDateAlert = true
                     }
                     else if (task.timeHours == 0 && task.timeMinutes < 5){
                         showingTaskDurationAlert = true
                     }
-                    else{*/
+                    else{
                         showingNameAlert = false
                         showingPastDateAlert = false
                         showingTaskDurationAlert = false
@@ -147,7 +150,7 @@ struct AddTaskView: View {
                         let viewModel = MainViewModel()
                                     viewModel.saveData(tasks: tasks, oldTasks: oldTasks)
                         dismiss()
-                    //}
+                    }
                 } label: {
                     Text("Submit")
                 }
